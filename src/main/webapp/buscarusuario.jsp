@@ -202,6 +202,7 @@
 				document.getElementById("nombre_usuario").value = "";
 				document.getElementById("password").value = "";
 				document.getElementById("user").value = "";
+				
 			}
 		}
 	</script>
