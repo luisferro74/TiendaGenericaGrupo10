@@ -10,7 +10,7 @@
 <!-- Tamaño de la pantalla -->
 <meta name="viewport" content="width=device-width">
 <!-- titulo de la pestaña -->
-<title>Lista de usuarios</title>
+<title>Lista de Ventas</title>
 <!-- bootstrap-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -29,31 +29,32 @@
 
 
 <script>
-	var baseurl = "http://localhost:8080/listarusuarios";
-	function loadusuarios() {
+	var baseurl = "http://localhost:8080/listarventas";
+	function load_ventas() {
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.open("GET", baseurl, true);
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-				var usuarios = JSON.parse(xmlhttp.responseText);
-				var tbltop = "<table class='table table-dark table-striped'><tr><th>Cedula</th><th>Email</th><th>Nombre</th><th>Password</th><th>Usuario</th></tr>";
+				var ventas = JSON.parse(xmlhttp.responseText);
+				var tbltop = "<table class='table table-dark table-striped'><tr><th>Codigo Venta</th><th>Cedula Cliente</th><th>Cedula Usuario</th><th>Iva Venta</th><th>Total Venta</th><th>Valor Venta</th></tr>";
 				var main = "";
-				for (i = 0; i < usuarios.length; i++) {
-					main += "<tr><td>" + usuarios[i].cedula_usuario
-							+ "</td><td>" + usuarios[i].email_usuario
-							+ "</td><td>" + usuarios[i].nombre_usuario
-							+ "</td><td>" + usuarios[i].password + "</td><td>"
-							+ usuarios[i].usuario + "</td></tr>";
-				}
+				for (i = 0; i < ventas.length; i++) {
+					main += "<tr><td>" + ventas[i].codigo_venta
+							+ "</td><td>" + ventas[i].cedula_cliente
+							+ "</td><td>" + ventas[i].cedula_usuario
+							+ "</td><td>" + ventas[i].iva_venta 
+							+ "</td><td>" + ventas[i].total_venta  
+							+ "</td><td>" + ventas[i].valor_venta +
+							"</td></tr>";			}
 				var tblbottom = "</table>";
 				var tbl = tbltop + main + tblbottom;
-				document.getElementById("usuariosinfo").innerHTML = tbl;
+				document.getElementById("ventasinfo").innerHTML = tbl;
 			}
 		};
 		xmlhttp.send();
 	}
 	window.onload = function() {
-		loadusuarios();
+		load_ventas();
 	}
 </script>
 
@@ -92,11 +93,11 @@
 	
 	<div style="padding-left: 5px;">
 	
-		<h1><i class="fas fa-list-ol"></i> Tabla de usuarios</h1>
+		<h1><i class="fas fa-list-ol"></i> Tabla de Ventas</h1>
 			<div class="container">
 				<div class="row">
 					<!--  Aqui es donde se autogenera la tabla basado en el script -->
-					<div class="col align-self-center" id="usuariosinfo">
+					<div class="col align-self-center" id="ventasinfo">
 					
 					</div>
 	
@@ -106,16 +107,16 @@
 		<h1><i class="fas fa-cogs"></i> Operaciones</h1>
 			<div class="container">
 				<div class="row">
-					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarusuario.jsp'">
-					<i class="fas fa-plus-circle"></i> Agregar usuario</button>
-					<button type="button" class="btn btn-danger" onclick="window.location.href='/eliminarusuario.jsp'">
-					<i class="fas fa-trash"></i> Eliminar usuario</button>
-					<button type="button" class="btn btn-warning" onclick="window.location.href='/actualizarusuario.jsp'">
-					<i class="fas fa-pen-alt"></i> Actualizar usuario</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/buscarusuario.jsp'">
-					<i class="fas fa-search"></i> Buscar un usuario</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/listausuarios.jsp'">
-					<i class="fas fa-search"></i> Listar todos los usuarios</button>
+					<button type="button" class="btn btn-success" onclick="#'">
+					<i class="fas fa-plus-circle"></i> Agregar Venta</button>
+					<button type="button" class="btn btn-danger" onclick="#'">
+					<i class="fas fa-trash"></i> Eliminar Venta</button>
+					<button type="button" class="btn btn-warning" onclick="#'">
+					<i class="fas fa-pen-alt"></i> Actualizar Venta</button>
+					<button type="button" class="btn btn-primary" onclick="#'">
+					<i class="fas fa-search"></i> Buscar una venta</button>
+					<button type="button" class="btn btn-primary" onclick="window.location.href='/listaventas.jsp'">
+					<i class="fas fa-search"></i> Listar todos las ventas</button>
 				</div>
 			</div>
 	</div>
@@ -125,7 +126,7 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado y programado por Diego Rodriguez <i
+					Diseñado por Grupo 10 <i
 					class="fas fa-code-branch"></i></a>
 			</div>
 		</div>

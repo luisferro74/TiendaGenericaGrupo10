@@ -27,8 +27,6 @@
 <!-- Cargando mi hoja de estilo -->
 <link href="style.css" rel="stylesheet" type="text/css" />
 
-
-
 </head>
 
 
@@ -37,7 +35,7 @@
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand links" href="index.html"><i
-				class="fas fa-fish"></i>Tienda GEnerica</a>
+				class="fas fa-fish"></i>Tienda Generica</a>
 		</div>
 	</nav>
 
@@ -169,7 +167,7 @@
 				req.send(null);
 				var usuario = null;
 				if (req.status == 200)
-					usuario = JSON.parse(req.responseText);
+				usuario = JSON.parse(req.responseText);
 				console.log(JSON.parse(req.responseText));
 			
 				var element = document.getElementById("error");

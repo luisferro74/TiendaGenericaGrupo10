@@ -8,14 +8,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.grupo10.tiendagenerica.DAO.ProductoDAO;
-import com.grupo10.tiendagenerica.DAO.ProductoDAO;
 import com.grupo10.tiendagenerica.DTO.ProductoVO;
-import com.grupo10.tiendagenerica.DTO.ProveedorVO;
-
 
 
 @RestController
-
 public class ProductoController {
 	
 	/*
@@ -43,18 +39,18 @@ public class ProductoController {
 		return Dao.listaDeProductos();
 	}
 	
-	/*
+	
 	@DeleteMapping("/eliminarproducto")
 	public void eliminarProducto(Integer codigo_producto) {
 		ProductoDAO Dao = new ProductoDAO();
-		Dao.eliminarProveedor(nit_proveedor);
+		Dao.eliminarProducto(codigo_producto);
 	}
 	
 	@PutMapping("/actualizarproducto")
-	public void actualizarProveedor(ProveedorVO producto) {
+	public void actualizarProducto(ProductoVO producto) {
 		ProductoDAO Dao = new ProductoDAO();
-		Dao.actualizarProveedor(producto);
+		Dao.actualizarProducto(producto);
 	}
-	*/
+	
 
 }

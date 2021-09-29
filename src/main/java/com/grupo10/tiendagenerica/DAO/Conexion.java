@@ -11,7 +11,7 @@ public class Conexion {
 	//root
 	static String usuariobd = "root";
 	//mintic
-	static String clavebd = "mintic";
+	static String clavebd = "mintics";
 	//127.0.0.1 == localhost
 	static String url = "jdbc:mysql://127.0.0.1/" + nombre_base_datos;
 	
@@ -26,8 +26,7 @@ public class Conexion {
 			connection = DriverManager.getConnection(url, usuariobd, clavebd);
 			//si hay conexión correcta mostrar información en consola
 			if (connection != null) {
-				System.out.println("Conexión a base de datos " 
-			+ nombre_base_datos + " OK\n");
+				System.out.println("Conexión a base de datos " + nombre_base_datos + " OK\n");
 			}
 		
 		} catch (SQLException e) {
