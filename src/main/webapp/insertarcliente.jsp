@@ -116,7 +116,7 @@
 			</form>
 
 			<button type="button" class="btn btn-success" onclick="enviar()">
-				<i class="fas fa-check"></i> Insertar nuevo cliente
+				<i class="fas fa-check"></i> Insertar Nuevo Cliente
 			</button>
 
 
@@ -128,19 +128,19 @@
 			<div class="container">
 				<div class="row">
 					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarcliente.jsp'">
-						<i class="fas fa-plus-circle"></i> Agregar cliente
+						<i class="fas fa-plus-circle"></i> Agregar Cliente
 					</button>
 					<button type="button" class="btn btn-danger" onclick="window.location.href='/eliminarcliente.jsp'">
-						<i class="fas fa-trash"></i> Eliminar cliente
+						<i class="fas fa-trash"></i> Eliminar Cliente
 					</button>
 					<button type="button" class="btn btn-warning" onclick="window.location.href='/actualizarcliente.jsp'">
-						<i class="fas fa-pen-alt"></i> Actualizar cliente
+						<i class="fas fa-pen-alt"></i> Actualizar Cliente
 					</button>
 					<button type="button" class="btn btn-primary" onclick="window.location.href='/buscarcliente.jsp'">
-						<i class="fas fa-search"></i> Buscar un cliente
+						<i class="fas fa-search"></i> Buscar un Cliente
 					</button>
 					<button type="button" class="btn btn-primary" onclick="window.location.href='/listaclientes.jsp'">
-						<i class="fas fa-search"></i> Listar todos los clientes
+						<i class="fas fa-search"></i> Listar Todos los Clientes
 					</button>
 				</div>
 

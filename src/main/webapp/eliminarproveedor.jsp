@@ -48,7 +48,7 @@
 				class="fas fa-users"></i> Usuarios
 			</a> <a class="navbar-brand links" href="listaclientes.jsp"> <i
 				class="fas fa-address-book"></i> Clientes
-			</a> <a class="navbar-brand links" href="listaproveedor.jsp"> <i
+			</a> <a class="navbar-brand links" href="listaproveedores.jsp"> <i
 				class="fas fa-truck"></i> Proveedores
 			</a> <a class="navbar-brand links" href="#"> <i
 				class="fas fa-apple-alt"></i> Productos
@@ -128,7 +128,7 @@
 	<script>
 		function eliminar_proveedor(){
 			
-			window.alert("Entre");
+			//window.alert("Entre");
 			var y = document.getElementById("nit_proveedor").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
@@ -142,7 +142,7 @@
 			for (i = 0; i < proveedores.length; i++) {				
 				console.log(proveedores[i].nit_proveedor);
 				if (proveedores[i].nit_proveedor == y) {
-					window.alert("Encontre el nit del proveedor");
+					//window.alert("Encontre el nit del proveedor");
 					console.log(proveedores[i].nit_proveedor + " " + y);
 					coincidencia = true;
 					break;

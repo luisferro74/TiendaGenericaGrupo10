@@ -160,7 +160,7 @@
 	<script>
 		function enviar_proveedor() {
 
-			window.alert("Entre");
+			//window.alert("Entre");
 				var req = new XMLHttpRequest();
 				var coincidencia = false;
 				var dato= document.getElementById("proveedor_search").value;
@@ -180,7 +180,7 @@
 				console.log(proveedor.toString());
 				
 			if (proveedor.toString()!=""){
-				window.alert("Encontre Proveedor con Nit"+ dato);
+				window.alert("Encontre Proveedor con Nit  "+ dato);
 
 				document.getElementById("nit_proveedor").value = proveedor[0].nit_proveedor;
 				document.getElementById("ciudad_proveedor").value = proveedor[0].ciudad_proveedor;
@@ -192,7 +192,7 @@
 			
 
 			} else {
-				window.alert("No Encontre Proveedor con nit "+ user);
+				window.alert("No Encontre Proveedor con nit  "+ user);
 				var element = document.getElementById("error");
 				element.classList.remove("visually-hidden");
 				var element2 = document.getElementById("correcto");

@@ -10,7 +10,7 @@
 <!-- Tamaño de la pantalla -->
 <meta name="viewport" content="width=device-width">
 <!-- titulo de la pestaña -->
-<title>Insertando usuario</title>
+<title>Insertando Usuario</title>
 <!-- bootstrap-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -181,6 +181,7 @@
 			console.log(coincidencia);	
 			
 			if (coincidencia==false){
+				
 				var formData = new FormData();
 	 			formData.append("cedula_usuario", document.getElementById("cedula_usuario").value);
 	 			formData.append("email_usuario", document.getElementById("email_usuario").value);

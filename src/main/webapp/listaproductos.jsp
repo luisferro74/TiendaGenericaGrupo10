@@ -40,7 +40,7 @@
 				var main = "";
 				for (i = 0; i < productos.length; i++) {
 					main += "<tr><td>" + productos[i].codigo_producto
-							+ "</td><td>" + productos[i].iva_compra
+							+ "</td><td>" + productos[i].iva_compra + "%"
 							+ "</td><td>" + productos[i].nit_proveedor
 							+ "</td><td>" + productos[i].nombre_producto 
 							+ "</td><td>" + productos[i].precio_compra  

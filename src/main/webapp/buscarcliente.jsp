@@ -10,7 +10,7 @@
 <!-- Tama�o de la pantalla -->
 <meta name="viewport" content="width=device-width">
 <!-- titulo de la pesta�a -->
-<title>Buscar cliente</title>
+<title>Buscar Cliente</title>
 <!-- bootstrap-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -130,19 +130,19 @@
 			<div class="container">
 				<div class="row">
 					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarcliente.jsp'">
-						<i class="fas fa-plus-circle"></i> Agregar cliente
+						<i class="fas fa-plus-circle"></i> Agregar Cliente
 					</button>
 					<button type="button" class="btn btn-danger" onclick="window.location.href='/eliminarcliente.jsp'">
-						<i class="fas fa-trash"></i> Eliminar cliente
+						<i class="fas fa-trash"></i> Eliminar Cliente
 					</button>
 					<button type="button" class="btn btn-warning" onclick="window.location.href='/actualizarcliente.jsp'">
-						<i class="fas fa-pen-alt"></i> Actualizar cliente
+						<i class="fas fa-pen-alt"></i> Actualizar Cliente
 					</button>
 					<button type="button" class="btn btn-primary" onclick="window.location.href='/buscarcliente.jsp'">
-						<i class="fas fa-search"></i> Buscar un cliente
+						<i class="fas fa-search"></i> Buscar un Cliente
 					</button>
 					<button type="button" class="btn btn-primary" onclick="window.location.href='/listaclientes.jsp'">
-						<i class="fas fa-search"></i> Listar todos los clientes
+						<i class="fas fa-search"></i> Listar Todos los Clientes
 					</button>
 				</div>
 			</div>
@@ -161,7 +161,7 @@
 	<script>
 		function enviar_cliente() {
 
-			window.alert("Entre");
+				//window.alert("Entre");
 				var req = new XMLHttpRequest();
 				var coincidencia = false;
 				var dato= document.getElementById("cliente_search").value;
@@ -169,7 +169,7 @@
 				req.send(null);
 				var cliente = null;
 				if (req.status == 200)
-					cliente = JSON.parse(req.responseText);
+				cliente = JSON.parse(req.responseText);
 				console.log(JSON.parse(req.responseText));
 							
 				
@@ -181,7 +181,7 @@
 				console.log(cliente.toString());
 				
 			if (cliente.toString()!=""){
-				window.alert("Encontre el cliente"+ dato);
+				window.alert("Encontre el cliente "+ dato);
 
 				document.getElementById("cedula_cliente").value = cliente[0].cedula_cliente;
 				document.getElementById("direccion_cliente").value = cliente[0].direccion_cliente;

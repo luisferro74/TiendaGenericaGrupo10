@@ -124,7 +124,7 @@
 	<script>
 		function eliminar_usuario() {
 			
-			window.alert("Entre");
+			//window.alert("Entre");
 			var y = document.getElementById("cedula_usuario").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
@@ -138,7 +138,7 @@
 			for (i = 0; i < usuarios.length; i++) {				
 				console.log(usuarios[i].cedula_usuario);
 				if (usuarios[i].cedula_usuario == y) {
-					window.alert("Encontre la cedula del usuario");
+					//window.alert("Encontre la cedula del usuario");
 					console.log(usuarios[i].cedula_usuario + " " + y);
 					coincidencia = true;
 					break;
@@ -147,7 +147,7 @@
 			console.log(coincidencia);
 
 			if (coincidencia != false) {
-				window.alert("Encontre la cedula" + y);
+				window.alert("Encontre la cedula  " + y);
 				var cedula=document.getElementById("cedula_usuario").value;
 				
 				var xhr = new XMLHttpRequest();
@@ -163,7 +163,7 @@
 				xhr.send();
 
 			} else {
-				window.alert("No Encontre la cedula" + y);
+				window.alert("No Encontre la cedula  " + y);
 				var element = document.getElementById("error");
 				element.classList.remove("visually-hidden");
 				

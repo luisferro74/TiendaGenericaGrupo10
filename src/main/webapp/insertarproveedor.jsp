@@ -62,7 +62,7 @@
 
 	<div style="padding-left: 5px">
 		<h1>
-			<i class="fas fa-plus-circle"></i> Datos del nuevo proveedor
+			<i class="fas fa-plus-circle"></i> Datos del Nuevo Proveedor
 		</h1>
 		<div class="container">
 		
@@ -116,7 +116,7 @@
 			</form>
 
 			<button type="button" class="btn btn-success" onclick="enviar()">
-				<i class="fas fa-check"></i> Insertar nuevo Proveedor
+				<i class="fas fa-check"></i> Insertar Nuevo Proveedor
 			</button>
 
 

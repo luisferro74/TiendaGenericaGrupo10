@@ -129,7 +129,7 @@
 	<script>
 		function eliminar_cliente() {
 			
-			window.alert("Entre");
+			//window.alert("Entre");
 			var y = document.getElementById("cedula_cliente").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
@@ -143,7 +143,7 @@
 			for (i = 0; i < clientes.length; i++) {				
 				console.log(clientes[i].cedula_cliente);
 				if (clientes[i].cedula_cliente == y) {
-					window.alert("Encontre la cedula del cliente");
+					//window.alert("Encontre el cliente con la cédula " + y);
 					console.log(clientes[i].cedula_cliente + " " + y);
 					coincidencia = true;
 					break;
@@ -152,7 +152,7 @@
 			console.log(coincidencia);
 
 			if (coincidencia != false) {
-				window.alert("Encontre la cedula" + y);
+				window.alert("Encontre la cedula  " + y);
 				var cedula=document.getElementById("cedula_cliente").value;
 				
 				var xhr = new XMLHttpRequest();

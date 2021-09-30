@@ -150,7 +150,7 @@
 	</nav>
 	<script>
 		function actualizar_proveedor() {
-			window.alert("Entre nuevo");
+			//window.alert("Entre nuevo");
 			var y = document.getElementById("nit_proveedor").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
@@ -164,7 +164,7 @@
 			for (i = 0; i < proveedores.length; i++) {
 				console.log(proveedores[i].nit_proveedor);
 				if (proveedores[i].nit_proveedor == y) {					
-					window.alert("Encontre nit proveedor" + y);
+					//window.alert("Encontre nit proveedor" + y);
 					console.log(proveedores[i].nit_proveedor + " " + y);
 					coincidencia = true;	
 					break;
@@ -172,11 +172,11 @@
 				}				
 			}//fin for busqueda usuario y cedula
 			
-			window.alert("Coincidencia " + coincidencia);
+			//window.alert("Coincidencia " + coincidencia);
 			console.log(coincidencia);
 
 			if (coincidencia != false) {
-				window.alert("Voy a enviar la información del proveedor con nit" + y);
+				window.alert("Voy a enviar la información del proveedor con nit " + y);
 				var formData = new FormData();
 				formData.append("nit_proveedor", document.getElementById("nit_proveedor").value);
 				formData.append("ciudad_proveedor", document.getElementById("ciudad_proveedor").value);
@@ -199,7 +199,7 @@
 				xhr.send(formData);
 
 			} else {
-				window.alert("No encontre el proveedor con nit" + y);
+				window.alert("No encontre el proveedor con nit  " + y);
 				var element = document.getElementById("error");
 				element.classList.remove("visually-hidden");
 				var element2 = document.getElementById("correcto");

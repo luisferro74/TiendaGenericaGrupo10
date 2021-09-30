@@ -42,7 +42,7 @@
 					main += "<tr><td>" + ventas[i].codigo_venta
 							+ "</td><td>" + ventas[i].cedula_cliente
 							+ "</td><td>" + ventas[i].cedula_usuario
-							+ "</td><td>" + ventas[i].iva_venta 
+							+ "</td><td>" + ventas[i].iva_venta + "%" 
 							+ "</td><td>" + ventas[i].total_venta  
 							+ "</td><td>" + ventas[i].valor_venta +
 							"</td></tr>";			}

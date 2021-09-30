@@ -150,7 +150,7 @@
 	</nav>
 	<script>
 		function actualizar_usuario() {
-			window.alert("Entre");
+			//window.alert("Entre");
 			
 			var y = document.getElementById("cedula_usuario").value;
 			var req = new XMLHttpRequest();
@@ -165,7 +165,7 @@
 			for (i = 0; i < usuarios.length; i++) {
 				console.log(usuarios[i].cedula_usuario);				
 				if (usuarios[i].cedula_usuario == y) {
-					window.alert("Encontre la cedula "+ y);
+					//window.alert("Encontre la cedula "+ y);
 					console.log(usuarios[i].cedula_usuario + " " + y);
 					coincidencia = true;
 					break;
@@ -176,6 +176,7 @@
 
 			if (coincidencia != false) {
 				var formData = new FormData();
+				window.alert("Voy a enviar la información del del usuario con cedula " + y);
 				formData.append("cedula_usuario", document.getElementById("cedula_usuario").value);
 				formData.append("email_usuario", document.getElementById("email_usuario").value);
 				formData.append("nombre_usuario", document.getElementById("nombre_usuario").value);
@@ -197,6 +198,7 @@
 				xhr.send(formData);
 
 			} else {
+				window.alert("No enconté el usuario con cedula " + y);
 				var element = document.getElementById("error");
 				element.classList.remove("visually-hidden");
 				var element2 = document.getElementById("correcto");

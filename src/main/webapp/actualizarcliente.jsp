@@ -151,7 +151,7 @@
 	</nav>
 	<script>
 		function actualizar_cliente() {
-			window.alert("Entre nuevo");
+			//window.alert("Entre nuevo");
 			var y = document.getElementById("cedula_cliente").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
@@ -165,7 +165,7 @@
 			for (i = 0; i < clientes.length; i++) {
 				console.log(clientes[i].cedula_cliente);
 				if (clientes[i].cedula_cliente == y) {					
-					window.alert("Encontre cedula cliente " + y);
+					//window.alert("Encontre cedula cliente " + y);
 					console.log(clientes[i].cedula_cliente + " " + y);
 					coincidencia = true;	
 					break;
@@ -173,22 +173,17 @@
 				}				
 			}//fin for busqueda usuario y cedula
 			
-			window.alert("Coincidencia " + coincidencia);
+			//window.alert("Coincidencia " + coincidencia);
 			console.log(coincidencia);
 
 			if (coincidencia != false) {
-				window.alert("Voy a enviar la información del cliente con cedula" + y);
+				window.alert("Voy a enviar la información del cliente con cedula  " + y);
 				var formData = new FormData();
-				formData.append("cedula_cliente", document
-						.getElementById("cedula_cliente").value);
-				formData.append("direccion_cliente", document
-						.getElementById("direccion_cliente").value);
-				formData.append("email_cliente", document
-						.getElementById("email_cliente").value);
-				formData.append("nombre_cliente",
-						document.getElementById("nombre_cliente").value);
-				formData.append("telefono_cliente",
-						document.getElementById("telefono_cliente").value);				
+				formData.append("cedula_cliente", document.getElementById("cedula_cliente").value);
+				formData.append("direccion_cliente", document.getElementById("direccion_cliente").value);
+				formData.append("email_cliente", document.getElementById("email_cliente").value);
+				formData.append("nombre_cliente",document.getElementById("nombre_cliente").value);
+				formData.append("telefono_cliente",	document.getElementById("telefono_cliente").value);				
 				var xhr = new XMLHttpRequest();
 				xhr.open("PUT", "http://localhost:8080/actualizarclientes");
 
@@ -205,7 +200,7 @@
 				xhr.send(formData);
 
 			} else {
-				window.alert("No encontre el cliente con cedula" + y);
+				window.alert("No encontre el cliente con cedula  " + y);
 				var element = document.getElementById("error");
 				element.classList.remove("visually-hidden");
 				var element2 = document.getElementById("correcto");

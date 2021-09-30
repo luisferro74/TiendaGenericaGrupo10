@@ -45,7 +45,7 @@
 							+ "</td><td>" + ventas[i].codigo_venta
 							+ "</td><td>" + ventas[i].valor_total
 							+ "</td><td>" + ventas[i].valor_venta  
-							+ "</td><td>" + ventas[i].valor_iva +
+							+ "</td><td>" + ventas[i].valor_iva +"%" +
 							"</td></tr>";			}
 				var tblbottom = "</table>";
 				var tbl = tbltop + main + tblbottom;

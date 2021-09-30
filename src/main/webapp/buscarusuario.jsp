@@ -159,7 +159,7 @@
 	<script>
 		function enviar_usuario() {
 
-			window.alert("Entre");
+			//window.alert("Entre");
 				var req = new XMLHttpRequest();
 				var coincidencia = false;
 				var user= document.getElementById("usersearch").value;
