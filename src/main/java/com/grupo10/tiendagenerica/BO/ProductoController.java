@@ -46,11 +46,21 @@ public class ProductoController {
 		Dao.eliminarProducto(codigo_producto);
 	}
 	
+	@DeleteMapping("/eliminartodoproducto")
+	public void eliminarTodoProducto() {
+		ProductoDAO Dao = new ProductoDAO();
+		Dao.eliminarTodoProducto();
+	}
+	
 	@PutMapping("/actualizarproducto")
 	public void actualizarProducto(ProductoVO producto) {
 		ProductoDAO Dao = new ProductoDAO();
 		Dao.actualizarProducto(producto);
 	}
+	
+	
+	
+	
 	
 
 }

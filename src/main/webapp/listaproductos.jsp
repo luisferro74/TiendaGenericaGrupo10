@@ -7,10 +7,10 @@
 
 <!-- paquete de caracteres -->
 <meta charset="utf-8">
-<!-- Tamaño de la pantalla -->
+<!-- TamaÃ±o de la pantalla -->
 <meta name="viewport" content="width=device-width">
-<!-- titulo de la pestaña -->
-<title>Lista de Productos</title>
+<!-- titulo de la pestaÃ±a -->
+<title>Insertando y Listando Productos</title>
 <!-- bootstrap-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -29,8 +29,73 @@
 
 
 <script>
-	var baseurl = "http://localhost:8080/listarproductos";
+	
+function subirArchivo() {
+
+	try {
+		var csvFile = document.getElementById("archivo");
+		var input = csvFile.files[0];
+		var reader = new FileReader();
+
+		reader.onload = function(e) {
+
+			var text = e.target.result;
+			var arrayLineas = text.split("\n");
+			var xhr = new XMLHttpRequest();
+			xhr.open("DELETE","http://localhost:8080/eliminartodoproducto",true);
+			xhr.send();
+
+			for (var i = 0; i < arrayLineas.length; i += 1) {
+				var arraydatos = arrayLineas[i].split(",");
+
+				if (arrayLineas[i] == "") {
+					continue;
+				}
+
+				for (var j = 0; j < arraydatos.length; j += 1) {
+					console.log(i + " " + j + "->" + arraydatos[j]);
+				}
+
+				var formData = new FormData();
+				formData.append("codigo_producto", arraydatos[0]);
+				formData.append("nombre_producto", arraydatos[1]);
+				formData.append("nit_proveedor", arraydatos[2]);
+				formData.append("precio_compra", arraydatos[3]);
+				formData.append("iva_compra", arraydatos[4]);
+				formData.append("precio_venta", arraydatos[5]);
+				var xhr = new XMLHttpRequest();
+				xhr.open("POST","http://localhost:8080/registrarproducto");
+				xhr.send(formData);
+			}
+
+			var element = document.getElementById("error");
+			element.classList.add("visually-hidden");
+			var element2 = document.getElementById("correcto");
+			element2.classList.remove("visually-hidden");
+
+			document.getElementById("archivo").value = "";
+			
+			window.alert("Archivo cargado con exito, se cargaron " +arrayLineas.length+ " productos");
+			
+			load_productos();
+			
+
+		};
+
+		reader.readAsText(input);
+	} catch (error) {
+		var element = document.getElementById("error");
+		element.classList.remove("visually-hidden");
+		var element2 = document.getElementById("correcto");
+		element2.classList.add("visually-hidden");
+
+		document.getElementById("archivo").value = "";
+	}
+}
+	
+	
 	function load_productos() {
+		var baseurl = "http://localhost:8080/listarproductos";
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.open("GET", baseurl, true);
 		xmlhttp.onreadystatechange = function() {
@@ -45,17 +110,16 @@
 							+ "</td><td>" + productos[i].nombre_producto 
 							+ "</td><td>" + productos[i].precio_compra  
 							+ "</td><td>" + productos[i].precio_venta +
-							"</td></tr>";			}
+							"</td></tr>";			}//fin for
 				var tblbottom = "</table>";
 				var tbl = tbltop + main + tblbottom;
 				document.getElementById("productosinfo").innerHTML = tbl;
-			}
-		};
+			}//fin if 
+		}; //fin xml onreadystatechange
 		xmlhttp.send();
-	}
-	window.onload = function() {
-		load_productos();
-	}
+	}//fin funcion
+	
+	
 </script>
 
 </head>
@@ -95,6 +159,27 @@
 	
 		<h1><i class="fas fa-list-ol"></i> Tabla de Productos</h1>
 			<div class="container">
+				
+				<div id="error" class="alert alert-danger visually-hidden"
+				role="alert">Archivo vacio, extensiï¿½n no valida o datos corruptos (El separador debe ser coma ",")</div>
+
+			<div id="correcto" class="alert alert-success visually-hidden"
+				role="alert">Productos importados desde CSV con exito</div>
+				
+				<form id="form1">
+				<div>
+					<label for="formFileLg" class="form-label">Seleccionar
+						archivo CSV con el inventario de productos</label> <input
+						class="form-control form-control-lg" id="archivo" type="file"
+						accept=".csv">
+					<button type="button" class="btn btn-success"
+						onclick="subirArchivo()">Subir archivo</button>
+				</div>
+
+				</form>
+				
+								
+				
 				<div class="row">
 					<!--  Aqui es donde se autogenera la tabla basado en el script -->
 					<div class="col align-self-center" id="productosinfo">
@@ -126,7 +211,7 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado por Grupo 10 <i
+					DiseÃ±ado por Grupo 10 <i
 					class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
