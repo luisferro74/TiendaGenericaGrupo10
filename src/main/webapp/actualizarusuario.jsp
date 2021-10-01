@@ -149,6 +149,42 @@
 		</div>
 	</nav>
 	<script>
+	
+	 var caja = document.getElementById("cedula_usuario");
+	caja.addEventListener("keyup", function (event) {		  
+        if (event.keyCode == 13) {
+        	traer_datos();
+        }
+    });
+	
+	function traer_datos() {
+		window.alert("Trayendo datos");		
+		var req = new XMLHttpRequest();
+		var coincidencia = false;
+		var cedula= document.getElementById("cedula_usuario").value;
+		req.open('GET', 'http://localhost:8080/consultarusuariocedula?cedula='+cedula, false);
+		req.send(null);
+		var usuario = null;
+		if (req.status == 200)
+		usuario = JSON.parse(req.responseText);
+		
+		
+	if (usuario.toString()!=""){
+		window.alert("Encontre el usuario con cedula "+ cedula);    				
+		document.getElementById("email_usuario").value = usuario[0].email_usuario;
+		document.getElementById("nombre_usuario").value = usuario[0].nombre_usuario;
+		document.getElementById("user").value = usuario[0].usuario;
+		document.getElementById("password").value = usuario[0].password;
+	} else {
+		window.alert("No Encontre el usuario con cedula "+ cedula);		
+		document.getElementById("cedula_usuario").value = "";
+		document.getElementById("email_usuario").value = "";
+		document.getElementById("nombre_usuario").value = "";
+		document.getElementById("password").value = "";
+		document.getElementById("user").value = "";
+	}
+	}
+	
 		function actualizar_usuario() {
 			//window.alert("Entre");
 			

@@ -149,6 +149,44 @@
 		</div>
 	</nav>
 	<script>
+	
+	
+	var caja = document.getElementById("nit_proveedor");
+	caja.addEventListener("keyup", function (event) {		  
+        if (event.keyCode == 13) {
+        	traer_datos_proveedor();
+        }
+    });
+	
+	function traer_datos_proveedor() {
+		window.alert("Trayendo datos");
+		var req = new XMLHttpRequest();
+		var coincidencia = false;
+		var dato= document.getElementById("nit_proveedor").value;
+		req.open('GET', 'http://localhost:8080/consultarproveedores?proveedor='+dato, false);
+		req.send(null);
+		var proveedor = null;
+		if (req.status == 200)
+		proveedor = JSON.parse(req.responseText);	
+		
+	if (proveedor.toString()!=""){
+		window.alert("Encontre Proveedor con Nit  "+ dato);		
+		document.getElementById("ciudad_proveedor").value = proveedor[0].ciudad_proveedor;
+		document.getElementById("direccion_proveedor").value = proveedor[0].direccion_proveedor;
+		document.getElementById("nombre_proveedor").value = proveedor[0].nombre_proveedor;
+		document.getElementById("telefono_proveedor").value = proveedor[0].telefono_proveedor;
+	} else {
+		window.alert("No Encontre Proveedor con nit  "+ dato);		
+		document.getElementById("nit_proveedor").value = "";
+		document.getElementById("ciudad_proveedor").value = "";
+		document.getElementById("direccion_proveedor").value = "";
+		document.getElementById("nombre_proveedor").value = "";
+		document.getElementById("telefono_proveedor").value = "";
+	}
+	}
+	
+	
+	
 		function actualizar_proveedor() {
 			//window.alert("Entre nuevo");
 			var y = document.getElementById("nit_proveedor").value;

@@ -33,6 +33,12 @@ public class UsuarioController {
 		UsuarioDAO Dao = new UsuarioDAO();
 		return Dao.consultarUsuario(usuario);
 	}
+	
+	@GetMapping("/consultarusuariocedula")
+	public ArrayList<UsuarioVO> consultarUsuarioCedula(Integer cedula) {
+		UsuarioDAO Dao = new UsuarioDAO();
+		return Dao.consultarUsuarioCedula(cedula);
+	}
 
 	@GetMapping("/listarusuarios")
 	public ArrayList<UsuarioVO> listaDeUsuarios() {

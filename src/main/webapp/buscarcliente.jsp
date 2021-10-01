@@ -193,7 +193,7 @@
 			
 
 			} else {
-				window.alert("No Encontre el cliente "+ user);
+				window.alert("No Encontre el cliente "+ dato);
 				var element = document.getElementById("error");
 				element.classList.remove("visually-hidden");
 				var element2 = document.getElementById("correcto");

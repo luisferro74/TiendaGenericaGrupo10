@@ -48,7 +48,7 @@
 				class="fas fa-users"></i> Usuarios
 			</a> <a class="navbar-brand links" href="listaclientes.jsp"> <i
 				class="fas fa-address-book"></i> Clientes
-			</a> <a class="navbar-brand links" href="listaproveedor.jsp"> <i
+			</a> <a class="navbar-brand links" href="listaproveedores.jsp"> <i
 				class="fas fa-truck"></i> Proveedores
 			</a> <a class="navbar-brand links" href="#"> <i
 				class="fas fa-apple-alt"></i> Productos
@@ -150,6 +150,42 @@
 		</div>
 	</nav>
 	<script>
+	
+	var caja = document.getElementById("cedula_cliente");
+	caja.addEventListener("keyup", function (event) {		  
+        if (event.keyCode == 13) {
+        	traer_datos_cliente();
+        }
+    });
+	
+	function traer_datos_cliente() {
+		window.alert("Trayendo datos");		
+		var req = new XMLHttpRequest();
+		var coincidencia = false;
+		var dato= document.getElementById("cedula_cliente").value;
+		req.open('GET', 'http://localhost:8080/consultarclientes?cedula_cliente='+dato, false);
+		req.send(null);
+		var cliente = null;
+		if (req.status == 200)
+		cliente = JSON.parse(req.responseText);
+		
+		
+		if (cliente.toString()!=""){
+			window.alert("Encontre el cliente con cedula"+ dato);			
+			document.getElementById("direccion_cliente").value = cliente[0].direccion_cliente;
+			document.getElementById("email_cliente").value = cliente[0].email_cliente;
+			document.getElementById("nombre_cliente").value = cliente[0].nombre_cliente;
+			document.getElementById("telefono_cliente").value = cliente[0].telefono_cliente;
+		} else {
+			window.alert("No Encontre el cliente con cedula "+ dato);			
+			document.getElementById("cedula_cliente").value = "";
+			document.getElementById("direccion_cliente").value = "";
+			document.getElementById("email_cliente").value = "";
+			document.getElementById("nombre_cliente").value = "";
+			document.getElementById("telefono_cliente").value = "";
+		}
+	}//fin funcion
+	
 		function actualizar_cliente() {
 			//window.alert("Entre nuevo");
 			var y = document.getElementById("cedula_cliente").value;

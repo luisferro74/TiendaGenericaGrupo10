@@ -166,17 +166,12 @@
 			for (i = 0; i < usuarios.length; i++) {
 				console.log(usuarios[i].usuario);
 				console.log(usuarios[i].cedula_usuario);
-				if (usuarios[i].usuario ===x ) {
-					console.log(usuarios[i].usuario +" "+x);	
+				if (usuarios[i].usuario ===x || usuarios[i].cedula_usuario ===y ) {						
 					coincidencia =true
 					break;
 				}
 				
-				if (usuarios[i].cedula_usuario ===y ) {
-					console.log(usuarios[i].cedula_usuario +" "+y);	
-					coincidencia =true
-					break;
-				}
+				
 			}
 			console.log(coincidencia);	
 			
