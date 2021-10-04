@@ -177,7 +177,7 @@
 			document.getElementById("nombre_cliente").value = cliente[0].nombre_cliente;
 			document.getElementById("telefono_cliente").value = cliente[0].telefono_cliente;
 		} else {
-			window.alert("No Encontre el cliente con cedula "+ dato);			
+			window.alert("No se encontro el cliente con cedula "+ dato);			
 			document.getElementById("cedula_cliente").value = "";
 			document.getElementById("direccion_cliente").value = "";
 			document.getElementById("email_cliente").value = "";

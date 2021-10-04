@@ -150,14 +150,15 @@
 	</nav>
 	<script>
 	
-	 var caja = document.getElementById("cedula_usuario");
+	 var caja = document.getElementById("cedula_usuario");	 
+	 
 	caja.addEventListener("keyup", function (event) {		  
         if (event.keyCode == 13) {
-        	traer_datos();
-        }
+        	traer_datos_usuario();	
+        	}       
     });
 	
-	function traer_datos() {
+	function traer_datos_usuario() {
 		window.alert("Trayendo datos");		
 		var req = new XMLHttpRequest();
 		var coincidencia = false;
@@ -176,7 +177,7 @@
 		document.getElementById("user").value = usuario[0].usuario;
 		document.getElementById("password").value = usuario[0].password;
 	} else {
-		window.alert("No Encontre el usuario con cedula "+ cedula);		
+		window.alert("No se encontro el usuario con cedula "+ cedula);		
 		document.getElementById("cedula_usuario").value = "";
 		document.getElementById("email_usuario").value = "";
 		document.getElementById("nombre_usuario").value = "";

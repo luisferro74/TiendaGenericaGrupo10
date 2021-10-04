@@ -176,7 +176,7 @@
 		document.getElementById("nombre_proveedor").value = proveedor[0].nombre_proveedor;
 		document.getElementById("telefono_proveedor").value = proveedor[0].telefono_proveedor;
 	} else {
-		window.alert("No Encontre Proveedor con nit  "+ dato);		
+		window.alert("No se encontro Proveedor con nit  "+ dato);		
 		document.getElementById("nit_proveedor").value = "";
 		document.getElementById("ciudad_proveedor").value = "";
 		document.getElementById("direccion_proveedor").value = "";
