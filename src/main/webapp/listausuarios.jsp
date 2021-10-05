@@ -72,18 +72,19 @@
 	<!-- Navbar modulos-->
 	<nav class="navbar navbar-dark bg-primary">
 		<div class="container">
-			<a class="navbar-brand links" href="listausuarios.jsp">
-			<i class="fas fa-users"></i> Usuarios</a> 
-			<a class="navbar-brand links" href="listaclientes.jsp">
-			<i class="fas fa-address-book"></i> Clientes</a>
-			<a class="navbar-brand links" href="listaproveedores.jsp">
-			<i class="fas fa-truck"></i> Proveedores</a>
-			<a class="navbar-brand links" href="listaproductos.jsp">
-			<i class="fas fa-apple-alt"></i> Productos</a>
-			<a class="navbar-brand links" href="listaventas.jsp">
-			<i class="fas fa-money-check-alt"></i> Ventas</a>
-			<a class="navbar-brand links" href="listadetalleventas.jsp">
-			<i class="fas fa-clipboard-list"></i> Reportes</a>
+			<a class="navbar-brand links" href="listausuarios.jsp"> <i
+				class="fas fa-users"></i> Usuarios
+			</a> <a class="navbar-brand links" href="listaclientes.jsp"> <i
+				class="fas fa-address-book"></i> Clientes
+			</a> <a class="navbar-brand links" href="listaproveedores.jsp"> <i
+				class="fas fa-truck"></i> Proveedores
+			</a> <a class="navbar-brand links" href="listaproductos.jsp"> <i
+				class="fas fa-apple-alt"></i> Productos
+			</a> <a class="navbar-brand links" href="insertarventa.jsp"> <i
+				class="fas fa-money-check-alt"></i> Ventas
+			</a> <a class="navbar-brand links" href="listareportes.jsp"> <i
+				class="fas fa-clipboard-list"></i> Reportes
+			</a>
 		</div>
 	</nav>
 	
