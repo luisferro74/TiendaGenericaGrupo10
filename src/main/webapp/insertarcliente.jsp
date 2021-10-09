@@ -169,16 +169,16 @@
 			var clientes=null;
 			if (req.status == 200)
 				clientes=JSON.parse(req.responseText);
-			  	console.log(JSON.parse(req.responseText));			  	
+			  	//console.log(JSON.parse(req.responseText));			  	
 			for (i = 0; i < clientes.length; i++) {
 				console.log(clientes[i].cedula_cliente);
 				if (clientes[i].cedula_cliente ==x ) {
-					console.log(clientes[i].cedula_cliente +" "+x);	
+					//console.log(clientes[i].cedula_cliente +" "+x);	
 					coincidencia =true
 					break;
 				}				
 			}
-			console.log(coincidencia);	
+			//console.log(coincidencia);	
 			
 			
 			if (coincidencia==false){

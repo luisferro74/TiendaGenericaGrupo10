@@ -95,6 +95,7 @@
 	
 		<h1><i class="fas fa-list-ol"></i> Tabla de usuarios</h1>
 			<div class="container">
+				
 				<div class="row">
 					<!--  Aqui es donde se autogenera la tabla basado en el script -->
 					<div class="col align-self-center" id="usuariosinfo">

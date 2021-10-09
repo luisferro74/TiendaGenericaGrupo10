@@ -66,12 +66,8 @@
 		<h1><i class="fas fa-list-ol"></i> Modulo de Reportes</h1>
 			<div class="container">
 			
-			<br>
-			<br>
-			<br>
-			<br>
-			
-			<button type="button" class="btn btn-primary" onclick="reporte_lista_usuarios()">
+			<br>			
+					<button type="button" class="btn btn-primary" onclick="reporte_lista_usuarios()">
 						<i class="fas fa-search"></i> Lista de usuarios
 					</button>
 			<br>
@@ -80,20 +76,20 @@
 						<!--  Aqui es donde se autogenera la tabla basado en el script -->
 						<div class="col align-self-center" id="usuarios_info">					
 						</div>
-					</div>
-			<br>
+					</div>			
 			<br>			
-			<button type="button" class="btn btn-primary" onclick="reporte_lista_clientes()">
+					<button type="button" class="btn btn-primary" onclick="reporte_lista_clientes()">
 						<i class="fas fa-search"></i> Lista de Clientes
 					</button>
-					
+			<br>
+			<br>						
 					<div class="row">
 						<!--  Aqui es donde se autogenera la tabla basado en el script -->
 						<div class="col align-self-center" id="clientes_info">					
 						</div>
 					</div>					
 			<br>
-			<br>			
+			
 					<button type="button" class="btn btn-primary" onclick="reporte_ventas_cliente()">
 						<i class="fas fa-search"></i> Ventas Por Cliente
 					</button>
