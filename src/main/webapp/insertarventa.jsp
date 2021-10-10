@@ -70,7 +70,7 @@
 
 			<form id="form1">
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Cedula</span> 
+					<span class="input-group-text" id="basic-addon1">Cedula Cliente</span> 
 					<input type="text" class="form-control"
 						placeholder="Inserte cedula cliente aqui..."
 						aria-describedby="basic-addon1" required id="cedula_cliente">					
@@ -81,10 +81,26 @@
 					<input type="text" class="form-control"
 						placeholder="Nombre cliente..."
 						aria-describedby="basic-addon1" required id="nombre_cliente" disabled="disabled">						
+				</div>
+				
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon1">Cedula Usuario</span> 
+					<input type="text" class="form-control"
+						placeholder="Inserte cedula usuario aqui..."
+						aria-describedby="basic-addon1" required id="cedula_usuario">					
+					<button type="button" class="btn btn-success" onclick="buscar_usuario_venta()">
+					<i class="fas fa-check"></i> Consultar
+					</button>					
+					<span class="input-group-text" id="basic-addon1">Usuario </span>
+					<input type="text" class="form-control"
+						placeholder="Nombre usuario..."
+						aria-describedby="basic-addon1" required id="nombre_usuario" disabled="disabled">						
+				
 					<span class="input-group-text" id="basic-addon1">Consecutivo </span>
 					<input type="text" class="form-control"
 						placeholder="Consecutivo venta"
-						aria-describedby="basic-addon1" required id="consecutivo_venta" disabled="disabled">							
+						aria-describedby="basic-addon1" required id="consecutivo_venta" >							
+				
 				</div>
 				
 				<div class="container">
@@ -280,10 +296,30 @@
 	<script>
 	
 	function buscar_cliente_venta() {
-		window.alert("Entre");
+		
 			var req = new XMLHttpRequest();			
 			var user= document.getElementById("cedula_cliente").value;
 			req.open('GET', 'http://localhost:8080/consultarclientes?cedula_cliente='+user, false);
+			req.send(null);
+			var cliente = null;
+			if (req.status == 200)
+				cliente = JSON.parse(req.responseText);
+					
+			
+		if (cliente.toString()!=""){
+			window.alert("Encontre el cliente con cedula "+ user);
+			document.getElementById("nombre_cliente").value = cliente[0].nombre_cliente;			
+		} else {
+			window.alert("No Encontre el cliente con cedula "+ user);
+			document.getElementById("cedula_cliente").value = "";		
+		}	
+	}//fin funcion
+	
+	function buscar_usuario_venta() {
+		
+			var req = new XMLHttpRequest();			
+			var user= document.getElementById("cedula_usuario").value;
+			req.open('GET', 'http://localhost:8080/consultarusuariocedula?cedula='+user, false);
 			req.send(null);
 			var usuario = null;
 			if (req.status == 200)
@@ -291,16 +327,17 @@
 					
 			
 		if (usuario.toString()!=""){
-			window.alert("Encontre el cliente con cedula "+ user);
-			document.getElementById("nombre_cliente").value = usuario[0].nombre_cliente;			
+			window.alert("Encontre el usuario con cedula "+ user);
+			document.getElementById("nombre_usuario").value = usuario[0].nombre_usuario;			
 		} else {
-			window.alert("No Encontre el cliente con cedula "+ user);
-			document.getElementById("cedula_cliente").value = "";		
+			window.alert("No Encontre el usuario con cedula "+ user);
+			document.getElementById("cedula_usuario").value = "";		
 		}	
 	}//fin funcion
 	
+	
 	function buscar_producto1_venta() {
-		window.alert("Entre");
+		
 			var req = new XMLHttpRequest();			
 			var user= document.getElementById("cod_prod1").value;
 			req.open('GET', 'http://localhost:8080/consultarproductos?producto='+user, false);
@@ -321,7 +358,7 @@
 	
 	
 	function buscar_producto2_venta() {
-		window.alert("Entre");
+		
 			var req = new XMLHttpRequest();			
 			var user= document.getElementById("cod_prod2").value;
 			req.open('GET', 'http://localhost:8080/consultarproductos?producto='+user, false);
@@ -342,7 +379,7 @@
 	
 	
 	function buscar_producto3_venta() {
-		window.alert("Entre");
+		
 			var req = new XMLHttpRequest();			
 			var user= document.getElementById("cod_prod3").value;
 			req.open('GET', 'http://localhost:8080/consultarproductos?producto='+user, false);
@@ -382,7 +419,7 @@
 			producto1 = JSON.parse(req.responseText);		
 		
 		if (producto1.toString()!=""){
-			window.alert("Encontre el precio de "+ vcanti1 + " " + producto1[0].nombre_producto);			
+			window.alert("Calculando precio de "+ vcanti1 + " " + producto1[0].nombre_producto);			
 			document.getElementById("valort_1").value = producto1[0].precio_venta*vcanti1;
 			
 		} else {
@@ -410,7 +447,7 @@
 			producto2 = JSON.parse(req.responseText);		
 		
 		if (producto2.toString()!=""){
-			window.alert("Encontre el precio de "+ vcanti2 +" " +producto2[0].nombre_producto);			
+			window.alert("Calculando el precio de "+ vcanti2 +" " +producto2[0].nombre_producto);			
 			document.getElementById("valort_2").value = producto2[0].precio_venta*vcanti2;
 			
 		} else {
@@ -438,7 +475,7 @@
 			producto3 = JSON.parse(req.responseText);		
 		
 		if (producto3.toString()!=""){
-			window.alert("Encontre el precio de "+ vcanti3 +" " +producto3[0].nombre_producto);			
+			window.alert("Calculando el precio de "+ vcanti3 +" " +producto3[0].nombre_producto);			
 			document.getElementById("valort_3").value = producto3[0].precio_venta*vcanti3;			
 		} else {
 			window.alert("No Encontre el precio de "+ producto3[0].nombre_producto);	}
