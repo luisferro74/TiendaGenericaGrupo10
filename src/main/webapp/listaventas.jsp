@@ -88,38 +88,46 @@
 			</a>
 		</div>
 	</nav>
-	
-	
+
+
 	<!-- contenido  -->
-	
+
 	<div style="padding-left: 5px;">
-	
-		<h1><i class="fas fa-list-ol"></i> Tabla de Ventas</h1>
-			<div class="container">
-				<div class="row">
-					<!--  Aqui es donde se autogenera la tabla basado en el script -->
-					<div class="col align-self-center" id="ventasinfo">
-					
-					</div>
-	
-				</div>
+
+		<h1>
+			<i class="fas fa-list-ol"></i> Tabla de Ventas
+		</h1>
+		<div class="container">
+			<div class="row">
+				<!--  Aqui es donde se autogenera la tabla basado en el script -->
+				<div class="col align-self-center" id="ventasinfo"></div>
+
 			</div>
-	
-		<h1><i class="fas fa-cogs"></i> Operaciones</h1>
-			<div class="container">
-				<div class="row">
-					<button type="button" class="btn btn-success" onclick="#'">
-					<i class="fas fa-plus-circle"></i> Agregar Venta</button>
-					<button type="button" class="btn btn-danger" onclick="#'">
-					<i class="fas fa-trash"></i> Eliminar Venta</button>
-					<button type="button" class="btn btn-warning" onclick="#'">
-					<i class="fas fa-pen-alt"></i> Actualizar Venta</button>
-					<button type="button" class="btn btn-primary" onclick="#'">
-					<i class="fas fa-search"></i> Buscar una venta</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/listaventas.jsp'">
-					<i class="fas fa-search"></i> Listar todos las ventas</button>
-				</div>
+		</div>
+
+		<h1>
+			<i class="fas fa-cogs"></i> Operaciones
+		</h1>
+		<div class="container">
+			<div class="row">
+				<button type="button" class="btn btn-success" onclick="#'">
+					<i class="fas fa-plus-circle"></i> Agregar Venta
+				</button>
+				<button type="button" class="btn btn-danger" onclick="#'">
+					<i class="fas fa-trash"></i> Eliminar Venta
+				</button>
+				<button type="button" class="btn btn-warning" onclick="#'">
+					<i class="fas fa-pen-alt"></i> Actualizar Venta
+				</button>
+				<button type="button" class="btn btn-primary" onclick="#'">
+					<i class="fas fa-search"></i> Buscar una venta
+				</button>
+				<button type="button" class="btn btn-primary"
+					onclick="window.location.href='/listaventas.jsp'">
+					<i class="fas fa-search"></i> Listar todos las ventas
+				</button>
 			</div>
+		</div>
 	</div>
 
 
@@ -127,8 +135,7 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado por Grupo 10 <i
-					class="fas fa-code-branch"></i></a>
+					Diseñado por Grupo 10 <i class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
 	</nav>

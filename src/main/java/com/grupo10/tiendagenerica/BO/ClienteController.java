@@ -11,23 +11,25 @@ import org.springframework.web.bind.annotation.RestController;
 import com.grupo10.tiendagenerica.DTO.ClienteVO;
 import com.grupo10.tiendagenerica.DAO.ClienteDAO;
 
-
 @RestController
 public class ClienteController {
-	
+
 	/*
 	 * @GetMapping obtener o buscar
+	 * 
 	 * @PostMapping insertar o agregar
+	 * 
 	 * @PutMapping modificar o actualizar
+	 * 
 	 * @DeleteMapping eliminar o borrar
-	 * */
-	
+	 */
+
 	@PostMapping("/registrarcliente")
 	public void registrarCliente(ClienteVO user) {
 		ClienteDAO Dao = new ClienteDAO();
-		Dao.registrarCliente(user);	
-		}
-	
+		Dao.registrarCliente(user);
+	}
+
 	@GetMapping("/consultarclientes")
 	public ArrayList<ClienteVO> consultarClientes(String cedula_cliente) {
 		ClienteDAO Dao = new ClienteDAO();
@@ -39,12 +41,13 @@ public class ClienteController {
 		ClienteDAO Dao = new ClienteDAO();
 		return Dao.listaDeClientes();
 	}
+
 	@DeleteMapping("/eliminarclientes")
 	public void eliminarCliente(Integer cedula_cliente) {
 		ClienteDAO Dao = new ClienteDAO();
 		Dao.eliminarCliente(cedula_cliente);
 	}
-	
+
 	@PutMapping("/actualizarclientes")
 	public void actualizarCliente(ClienteVO user) {
 		ClienteDAO Dao = new ClienteDAO();

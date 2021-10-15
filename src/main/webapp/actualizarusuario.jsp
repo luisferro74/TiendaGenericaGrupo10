@@ -67,7 +67,8 @@
 
 
 			<div id="error" class="alert alert-danger visually-hidden"
-				role="alert">Error al actualizar el usuario, verifique que la cedula y usuario dados sean validos</div>
+				role="alert">Error al actualizar el usuario, verifique que la
+				cedula y usuario dados sean validos</div>
 
 			<div id="correcto" class="alert alert-success visually-hidden"
 				role="alert">Usuario actualizado con exito</div>
@@ -88,8 +89,8 @@
 				</div>
 
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon3">Nombre completo</span>
-					<input type="text" class="form-control"
+					<span class="input-group-text" id="basic-addon3">Nombre
+						completo</span> <input type="text" class="form-control"
 						placeholder="Inserte nuevo nombre aqui..."
 						aria-describedby="basic-addon3" required id="nombre_usuario">
 				</div>
@@ -109,7 +110,8 @@
 				</div>
 			</form>
 
-			<button type="button" class="btn btn-warning" onclick="actualizar_usuario()">
+			<button type="button" class="btn btn-warning"
+				onclick="actualizar_usuario()">
 				<i class="fas fa-edit"></i> Actualizar usuario
 			</button>
 
@@ -118,19 +120,24 @@
 			</h1>
 			<div class="container">
 				<div class="row">
-					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarusuario.jsp'">
+					<button type="button" class="btn btn-success"
+						onclick="window.location.href='/insertarusuario.jsp'">
 						<i class="fas fa-plus-circle"></i> Agregar usuario
 					</button>
-					<button type="button" class="btn btn-danger" onclick="window.location.href='/eliminarusuario.jsp'">
+					<button type="button" class="btn btn-danger"
+						onclick="window.location.href='/eliminarusuario.jsp'">
 						<i class="fas fa-trash"></i> Eliminar usuario
 					</button>
-					<button type="button" class="btn btn-warning" onclick="window.location.href='/actualizarusuario.jsp'">
+					<button type="button" class="btn btn-warning"
+						onclick="window.location.href='/actualizarusuario.jsp'">
 						<i class="fas fa-pen-alt"></i> Actualizar usuario
 					</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/buscarusuario.jsp'">
+					<button type="button" class="btn btn-primary"
+						onclick="window.location.href='/buscarusuario.jsp'">
 						<i class="fas fa-search"></i> Buscar un usuario
 					</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/listausuarios.jsp'">
+					<button type="button" class="btn btn-primary"
+						onclick="window.location.href='/listausuarios.jsp'">
 						<i class="fas fa-search"></i> Listar todos los usuarios
 					</button>
 				</div>
@@ -142,52 +149,51 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado por Grupo 10 <i
-					class="fas fa-code-branch"></i></a>
+					Diseñado por Grupo 10 <i class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
 	</nav>
 	<script>
-	
-	 var caja = document.getElementById("cedula_usuario");	 
-	 
-	caja.addEventListener("keyup", function (event) {		  
-        if (event.keyCode == 13) {
-        	traer_datos_usuario();	
-        	}       
-    });
-	
-	function traer_datos_usuario() {
-		window.alert("Trayendo datos");		
-		var req = new XMLHttpRequest();
-		var coincidencia = false;
-		var cedula= document.getElementById("cedula_usuario").value;
-		req.open('GET', 'http://localhost:8080/consultarusuariocedula?cedula='+cedula, false);
-		req.send(null);
-		var usuario = null;
-		if (req.status == 200)
-		usuario = JSON.parse(req.responseText);
-		
-		
-	if (usuario.toString()!=""){
-		window.alert("Encontre el usuario con cedula "+ cedula);    				
-		document.getElementById("email_usuario").value = usuario[0].email_usuario;
-		document.getElementById("nombre_usuario").value = usuario[0].nombre_usuario;
-		document.getElementById("user").value = usuario[0].usuario;
-		document.getElementById("password").value = usuario[0].password;
-	} else {
-		window.alert("No se encontro el usuario con cedula "+ cedula);		
-		document.getElementById("cedula_usuario").value = "";
-		document.getElementById("email_usuario").value = "";
-		document.getElementById("nombre_usuario").value = "";
-		document.getElementById("password").value = "";
-		document.getElementById("user").value = "";
-	}
-	}
-	
+		var caja = document.getElementById("cedula_usuario");
+
+		caja.addEventListener("keyup", function(event) {
+			if (event.keyCode == 13) {
+				traer_datos_usuario();
+			}
+		});
+
+		function traer_datos_usuario() {
+			window.alert("Trayendo datos");
+			var req = new XMLHttpRequest();
+			var coincidencia = false;
+			var cedula = document.getElementById("cedula_usuario").value;
+			req.open('GET',
+					'http://localhost:8080/consultarusuariocedula?cedula='
+							+ cedula, false);
+			req.send(null);
+			var usuario = null;
+			if (req.status == 200)
+				usuario = JSON.parse(req.responseText);
+
+			if (usuario.toString() != "") {
+				window.alert("Encontre el usuario con cedula " + cedula);
+				document.getElementById("email_usuario").value = usuario[0].email_usuario;
+				document.getElementById("nombre_usuario").value = usuario[0].nombre_usuario;
+				document.getElementById("user").value = usuario[0].usuario;
+				document.getElementById("password").value = usuario[0].password;
+			} else {
+				window.alert("No se encontro el usuario con cedula " + cedula);
+				document.getElementById("cedula_usuario").value = "";
+				document.getElementById("email_usuario").value = "";
+				document.getElementById("nombre_usuario").value = "";
+				document.getElementById("password").value = "";
+				document.getElementById("user").value = "";
+			}
+		}
+
 		function actualizar_usuario() {
 			//window.alert("Entre");
-			
+
 			var y = document.getElementById("cedula_usuario").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
@@ -199,7 +205,7 @@
 			console.log(JSON.parse(req.responseText));
 
 			for (i = 0; i < usuarios.length; i++) {
-				console.log(usuarios[i].cedula_usuario);				
+				console.log(usuarios[i].cedula_usuario);
 				if (usuarios[i].cedula_usuario == y) {
 					//window.alert("Encontre la cedula "+ y);
 					console.log(usuarios[i].cedula_usuario + " " + y);
@@ -207,17 +213,24 @@
 					break;
 				}
 			}//fin for busqueda cedula
-			
+
 			console.log(coincidencia);
 
 			if (coincidencia != false) {
 				var formData = new FormData();
-				window.alert("Voy a enviar la información del del usuario con cedula " + y);
-				formData.append("cedula_usuario", document.getElementById("cedula_usuario").value);
-				formData.append("email_usuario", document.getElementById("email_usuario").value);
-				formData.append("nombre_usuario", document.getElementById("nombre_usuario").value);
-				formData.append("password",	document.getElementById("password").value);
-				formData.append("usuario",	document.getElementById("user").value);
+				window
+						.alert("Voy a enviar la información del del usuario con cedula "
+								+ y);
+				formData.append("cedula_usuario", document
+						.getElementById("cedula_usuario").value);
+				formData.append("email_usuario", document
+						.getElementById("email_usuario").value);
+				formData.append("nombre_usuario", document
+						.getElementById("nombre_usuario").value);
+				formData.append("password",
+						document.getElementById("password").value);
+				formData.append("usuario",
+						document.getElementById("user").value);
 				var xhr = new XMLHttpRequest();
 				xhr.open("PUT", "http://localhost:8080/actualizarusuarios");
 

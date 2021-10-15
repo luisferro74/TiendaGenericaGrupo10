@@ -62,54 +62,59 @@
 
 	<div style="padding-left: 5px">
 		<h1>
-			<i class="fas fa-skull-crossbones"></i> Datos del Proveedor a eliminar
+			<i class="fas fa-skull-crossbones"></i> Datos del Proveedor a
+			eliminar
 		</h1>
 		<div class="container">
 
 
 			<div id="error" class="alert alert-danger visually-hidden"
-				role="alert">Error al eliminar el proveedor, verifique que 
+				role="alert">Error al eliminar el proveedor, verifique que
 				exista un proveedor con el nit dado</div>
 
 			<div id="correcto" class="alert alert-success visually-hidden"
 				role="alert">Proveedor eliminado con exito</div>
 
 			<form id="form1">
-			
+
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Nit proveedor</span> <input
-						type="text" class="form-control"
+					<span class="input-group-text" id="basic-addon1">Nit
+						proveedor</span> <input type="text" class="form-control"
 						placeholder="Inserte nit proveedor aqui..."
 						aria-describedby="basic-addon1" required id="nit_proveedor">
 				</div>
 
 			</form>
 
-			<button type="button" class="btn btn-danger" onclick="eliminar_proveedor()">
+			<button type="button" class="btn btn-danger"
+				onclick="eliminar_proveedor()">
 				<i class="fas fa-skull-crossbones"></i> Eliminar Proveedor
 			</button>
-			
-			<br>
-			<br>
-			<br>
+
+			<br> <br> <br>
 			<h1>
 				<i class="fas fa-cogs"></i> Operaciones
 			</h1>
 			<div class="container">
 				<div class="row">
-					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarproveedor.jsp'">
+					<button type="button" class="btn btn-success"
+						onclick="window.location.href='/insertarproveedor.jsp'">
 						<i class="fas fa-plus-circle"></i> Agregar proveedor
 					</button>
-					<button type="button" class="btn btn-danger" onclick="window.location.href='/eliminarproveedor.jsp'">
+					<button type="button" class="btn btn-danger"
+						onclick="window.location.href='/eliminarproveedor.jsp'">
 						<i class="fas fa-trash"></i> Eliminar proveedor
 					</button>
-					<button type="button" class="btn btn-warning" onclick="window.location.href='/actualizarproveedor.jsp'">
+					<button type="button" class="btn btn-warning"
+						onclick="window.location.href='/actualizarproveedor.jsp'">
 						<i class="fas fa-pen-alt"></i> Actualizar proveedor
 					</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/buscarproveedor.jsp'">
+					<button type="button" class="btn btn-primary"
+						onclick="window.location.href='/buscarproveedor.jsp'">
 						<i class="fas fa-search"></i> Buscar un proveedor
 					</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/listaproveedores.jsp'">
+					<button type="button" class="btn btn-primary"
+						onclick="window.location.href='/listaproveedores.jsp'">
 						<i class="fas fa-search"></i> Listar todos los proveedores
 					</button>
 				</div>
@@ -120,14 +125,13 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado por Grupo 10 <i
-					class="fas fa-code-branch"></i></a>
+					Diseñado por Grupo 10 <i class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
 	</nav>
 	<script>
-		function eliminar_proveedor(){
-			
+		function eliminar_proveedor() {
+
 			//window.alert("Entre");
 			var y = document.getElementById("nit_proveedor").value;
 			var req = new XMLHttpRequest();
@@ -136,10 +140,10 @@
 			req.send(null);
 			var proveedores = null;
 			if (req.status == 200)
-			proveedores = JSON.parse(req.responseText);
+				proveedores = JSON.parse(req.responseText);
 			console.log(JSON.parse(req.responseText));
 
-			for (i = 0; i < proveedores.length; i++) {				
+			for (i = 0; i < proveedores.length; i++) {
 				console.log(proveedores[i].nit_proveedor);
 				if (proveedores[i].nit_proveedor == y) {
 					//window.alert("Encontre el nit del proveedor");
@@ -152,14 +156,16 @@
 
 			if (coincidencia != false) {
 				window.alert("Encontre el proveedor con NIT" + y);
-				var dato=document.getElementById("nit_proveedor").value;
-				
+				var dato = document.getElementById("nit_proveedor").value;
+
 				var xhr = new XMLHttpRequest();
-				xhr.open("DELETE", "http://localhost:8080/eliminarproveedor?nit_proveedor="+dato);
-				
+				xhr.open("DELETE",
+						"http://localhost:8080/eliminarproveedor?nit_proveedor="
+								+ dato);
+
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");
-				
+
 				var element2 = document.getElementById("correcto");
 				element2.classList.remove("visually-hidden");
 
@@ -170,11 +176,12 @@
 				window.alert("No Encontre el nit del proveedor" + y);
 				var element = document.getElementById("error");
 				element.classList.remove("visually-hidden");
-				
+
 				var element2 = document.getElementById("correcto");
 				element2.classList.add("visually-hidden");
-				
-				document.getElementById("nit_proveedor").value = "";;
+
+				document.getElementById("nit_proveedor").value = "";
+				;
 			}
 		}
 	</script>

@@ -42,8 +42,9 @@
 					main += "<tr><td>" + clientes[i].cedula_cliente
 							+ "</td><td>" + clientes[i].direccion_cliente
 							+ "</td><td>" + clientes[i].email_cliente
-							+ "</td><td>" + clientes[i].nombre_cliente + "</td><td>"
-							+ clientes[i].telefono_cliente + "</td></tr>";
+							+ "</td><td>" + clientes[i].nombre_cliente
+							+ "</td><td>" + clientes[i].telefono_cliente
+							+ "</td></tr>";
 				}
 				var tblbottom = "</table>";
 				var tbl = tbltop + main + tblbottom;
@@ -87,38 +88,50 @@
 			</a>
 		</div>
 	</nav>
-	
-	
+
+
 	<!-- contenido  -->
-	
+
 	<div style="padding-left: 5px;">
-	
-		<h1><i class="fas fa-list-ol"></i> Tabla de clientes</h1>
-			<div class="container">
-				<div class="row">
-					<!--  Aqui es donde se autogenera la tabla basado en el script -->
-					<div class="col align-self-center" id="clientesinfo">
-					
-					</div>
-	
-				</div>
+
+		<h1>
+			<i class="fas fa-list-ol"></i> Tabla de clientes
+		</h1>
+		<div class="container">
+			<div class="row">
+				<!--  Aqui es donde se autogenera la tabla basado en el script -->
+				<div class="col align-self-center" id="clientesinfo"></div>
+
 			</div>
-	
-		<h1><i class="fas fa-cogs"></i> Operaciones</h1>
-			<div class="container">
-				<div class="row">
-					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarcliente.jsp'">
-					<i class="fas fa-plus-circle"></i> Agregar cliente</button>
-					<button type="button" class="btn btn-danger" onclick="window.location.href='/eliminarcliente.jsp'">
-					<i class="fas fa-trash"></i> Eliminar cliente</button>
-					<button type="button" class="btn btn-warning" onclick="window.location.href='/actualizarcliente.jsp'">
-					<i class="fas fa-pen-alt"></i> Actualizar cliente</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/buscarcliente.jsp'">
-					<i class="fas fa-search"></i> Buscar un cliente</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/listaclientes.jsp'">
-					<i class="fas fa-search"></i> Listar todos los clientes</button>
-				</div>
+		</div>
+
+		<h1>
+			<i class="fas fa-cogs"></i> Operaciones
+		</h1>
+		<div class="container">
+			<div class="row">
+				<button type="button" class="btn btn-success"
+					onclick="window.location.href='/insertarcliente.jsp'">
+					<i class="fas fa-plus-circle"></i> Agregar cliente
+				</button>
+				<button type="button" class="btn btn-danger"
+					onclick="window.location.href='/eliminarcliente.jsp'">
+					<i class="fas fa-trash"></i> Eliminar cliente
+				</button>
+				<button type="button" class="btn btn-warning"
+					onclick="window.location.href='/actualizarcliente.jsp'">
+					<i class="fas fa-pen-alt"></i> Actualizar cliente
+				</button>
+				<button type="button" class="btn btn-primary"
+					onclick="window.location.href='/buscarcliente.jsp'">
+					<i class="fas fa-search"></i> Buscar un cliente
+				</button>
+				<button type="button" class="btn btn-primary"
+					onclick="window.location.href='/listaclientes.jsp'">
+					<i class="fas fa-search"></i> Listar todos los clientes
+				</button>
 			</div>
+		</div>
 	</div>
 
 
@@ -126,8 +139,7 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado por Grupo 10 <i
-					class="fas fa-code-branch"></i></a>
+					Diseñado por Grupo 10 <i class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
 	</nav>

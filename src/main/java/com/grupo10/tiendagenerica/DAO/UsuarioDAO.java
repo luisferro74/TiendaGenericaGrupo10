@@ -4,45 +4,40 @@ import java.sql.*;
 import java.util.ArrayList;
 import com.grupo10.tiendagenerica.DTO.UsuarioVO;
 
-
 //Clase que permite el acceso a la base de datos
 public class UsuarioDAO {
-	
-	//Registrar un nuevo usuario
-	
+
+	// Registrar un nuevo usuario
+
 	public void registrarUsuario(UsuarioVO user) {
-		//llama y crea una instancia de la clase encargada de hacer la conexión
+		// llama y crea una instancia de la clase encargada de hacer la conexión
 		Conexion conex = new Conexion();
 
 		try {
-			//sentencia que se ejecutara en la base de datos
+			// sentencia que se ejecutara en la base de datos
 			Statement estatuto = conex.getConnection().createStatement();
-			
-			//String que contiene la sentencia insert a ejecutar
-			String sentencia = "INSERT INTO usuarios VALUES(" 
-					+ user.getCedula_usuario() + "," + "'"
-					+ user.getEmail_usuario() + "'," + "'" 
-					+ user.getNombre_usuario() + "'," + "'" 
-					+ user.getPassword()+ "'," + "'" 
-					+ user.getUsuario() + "'" 
-					+ ");";
-			
-			//se ejecuta la sentencia en la base de datos
+
+			// String que contiene la sentencia insert a ejecutar
+			String sentencia = "INSERT INTO usuarios VALUES(" + user.getCedula_usuario() + "," + "'"
+					+ user.getEmail_usuario() + "'," + "'" + user.getNombre_usuario() + "'," + "'" + user.getPassword()
+					+ "'," + "'" + user.getUsuario() + "'" + ");";
+
+			// se ejecuta la sentencia en la base de datos
 			estatuto.executeUpdate(sentencia);
-			//impresión en consola para verificación 
+			// impresión en consola para verificación
 			System.out.println("Registrado " + sentencia);
-			//cerrando la sentencia y la conexión
+			// cerrando la sentencia y la conexión
 			estatuto.close();
 			conex.desconectar();
 
 		} catch (SQLException e) {
-			//si hay un error en el sql mostrarlo
+			// si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
 			System.out.println("No se pudo insertar el usuario");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
-			//si hay cualquier otro error mostrarlo
+			// si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
 			System.out.println("No se pudo insertar el usuario");
 			System.out.println(e.getMessage());
@@ -50,29 +45,29 @@ public class UsuarioDAO {
 		}
 
 	}
-	
-	
+
 	/**
 	 * permite consultar el Usuario asociado al user enviado como parametro
 	 * 
 	 * @param documento
 	 * @return
 	 */
-	
-	public ArrayList<UsuarioVO> consultarUsuarioCedula(Integer cedula) {	
-		//lista que contendra el o los usuarios obtenidos
-		ArrayList<UsuarioVO> listausuarios = new ArrayList<UsuarioVO>();		
-		//instancia de la conexión
+
+	public ArrayList<UsuarioVO> consultarUsuarioCedula(Integer cedula) {
+		// lista que contendra el o los usuarios obtenidos
+		ArrayList<UsuarioVO> listausuarios = new ArrayList<UsuarioVO>();
+		// instancia de la conexión
 		Conexion conex = new Conexion();
 		try {
-			//prepare la sentencia en la base de datos
+			// prepare la sentencia en la base de datos
 			PreparedStatement consulta = conex.getConnection()
-					.prepareStatement("SELECT * FROM usuarios where cedula_usuario = ? ");		
-			// se cambia el comodin ? por el dato que ha llegado en el parametro de la funcion
-			consulta.setInt(1, cedula);			
-			//ejecute la sentencia
-			ResultSet res = consulta.executeQuery();			
-			//cree un objeto basado en la clase entidad con los datos encontrados
+					.prepareStatement("SELECT * FROM usuarios where cedula_usuario = ? ");
+			// se cambia el comodin ? por el dato que ha llegado en el parametro de la
+			// funcion
+			consulta.setInt(1, cedula);
+			// ejecute la sentencia
+			ResultSet res = consulta.executeQuery();
+			// cree un objeto basado en la clase entidad con los datos encontrados
 			if (res.next()) {
 				UsuarioVO Usuario = new UsuarioVO();
 				Usuario.setCedula_usuario(Integer.parseInt(res.getString("cedula_usuario")));
@@ -83,19 +78,19 @@ public class UsuarioDAO {
 
 				listausuarios.add(Usuario);
 			}
-			//cerrar resultado, sentencia y conexión
+			// cerrar resultado, sentencia y conexión
 			res.close();
 			consulta.close();
 			conex.desconectar();
 
 		} catch (SQLException e) {
-			//si hay un error en el sql mostrarlo
+			// si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
 			System.out.println("No se pudo consultar el usuario");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
-			//si hay cualquier otro error mostrarlo
+			// si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
 			System.out.println("No se pudo consultar el usuario");
 			System.out.println(e.getMessage());
@@ -104,21 +99,21 @@ public class UsuarioDAO {
 		return listausuarios;
 	}
 
-	
-	public ArrayList<UsuarioVO> consultarUsuario(String usuario) {	
-		//lista que contendra el o los usuarios obtenidos
-		ArrayList<UsuarioVO> listausuarios = new ArrayList<UsuarioVO>();		
-		//instancia de la conexión
+	public ArrayList<UsuarioVO> consultarUsuario(String usuario) {
+		// lista que contendra el o los usuarios obtenidos
+		ArrayList<UsuarioVO> listausuarios = new ArrayList<UsuarioVO>();
+		// instancia de la conexión
 		Conexion conex = new Conexion();
 		try {
-			//prepare la sentencia en la base de datos
+			// prepare la sentencia en la base de datos
 			PreparedStatement consulta = conex.getConnection()
-					.prepareStatement("SELECT * FROM usuarios where usuario = ? ");		
-			// se cambia el comodin ? por el dato que ha llegado en el parametro de la funcion
-			consulta.setString(1, usuario);			
-			//ejecute la sentencia
-			ResultSet res = consulta.executeQuery();			
-			//cree un objeto basado en la clase entidad con los datos encontrados
+					.prepareStatement("SELECT * FROM usuarios where usuario = ? ");
+			// se cambia el comodin ? por el dato que ha llegado en el parametro de la
+			// funcion
+			consulta.setString(1, usuario);
+			// ejecute la sentencia
+			ResultSet res = consulta.executeQuery();
+			// cree un objeto basado en la clase entidad con los datos encontrados
 			if (res.next()) {
 				UsuarioVO Usuario = new UsuarioVO();
 				Usuario.setCedula_usuario(Integer.parseInt(res.getString("cedula_usuario")));
@@ -129,19 +124,19 @@ public class UsuarioDAO {
 
 				listausuarios.add(Usuario);
 			}
-			//cerrar resultado, sentencia y conexión
+			// cerrar resultado, sentencia y conexión
 			res.close();
 			consulta.close();
 			conex.desconectar();
 
 		} catch (SQLException e) {
-			//si hay un error en el sql mostrarlo
+			// si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
 			System.out.println("No se pudo consultar el usuario");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
-			//si hay cualquier otro error mostrarlo
+			// si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
 			System.out.println("No se pudo consultar el usuario");
 			System.out.println(e.getMessage());
@@ -149,26 +144,28 @@ public class UsuarioDAO {
 		}
 		return listausuarios;
 	}
+
 	/**
 	 * permite consultar la lista de todos los usuarios
 	 * 
 	 * @return
 	 */
 	public ArrayList<UsuarioVO> listaDeUsuarios() {
-		//lista que contendra el o los usuarios obtenidos
+		// lista que contendra el o los usuarios obtenidos
 		ArrayList<UsuarioVO> listausuarios = new ArrayList<UsuarioVO>();
-		
-		//instancia de la conexión
+
+		// instancia de la conexión
 		Conexion conex = new Conexion();
 
 		try {
-			//prepare la sentencia en la base de datos
+			// prepare la sentencia en la base de datos
 			PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM usuarios");
-			
-			//ejecute la sentencia
+
+			// ejecute la sentencia
 			ResultSet res = consulta.executeQuery();
-			
-			//cree un objeto para cada encontrado en la base de datos basado en la clase entidad con los datos encontrados
+
+			// cree un objeto para cada encontrado en la base de datos basado en la clase
+			// entidad con los datos encontrados
 			while (res.next()) {
 				UsuarioVO Usuario = new UsuarioVO();
 				Usuario.setCedula_usuario(Integer.parseInt(res.getString("cedula_usuario")));
@@ -179,20 +176,20 @@ public class UsuarioDAO {
 
 				listausuarios.add(Usuario);
 			}
-			
-			//cerrar resultado, sentencia y conexión
+
+			// cerrar resultado, sentencia y conexión
 			res.close();
 			consulta.close();
 			conex.desconectar();
 
 		} catch (SQLException e) {
-			//si hay un error en el sql mostrarlo
+			// si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
 			System.out.println("No se pudo consultar todos los usuarios");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
-			//si hay cualquier otro error mostrarlo
+			// si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
 			System.out.println("No se pudo consultar todos los usuarios");
 			System.out.println(e.getMessage());
@@ -202,36 +199,36 @@ public class UsuarioDAO {
 		return listausuarios;
 	}
 
-public void eliminarUsuario(Integer cedula_usuario) {
-		
-		//instancia de la conexion
+	public void eliminarUsuario(Integer cedula_usuario) {
+
+		// instancia de la conexion
 		Conexion conex = new Conexion();
 
 		try {
-			//sentencia inicializada
+			// sentencia inicializada
 			Statement consulta = conex.getConnection().createStatement();
-			
-			//preparando sentencia a realizar
+
+			// preparando sentencia a realizar
 			String sentencia = "delete from usuarios where cedula_usuario=" + cedula_usuario + ";";
-			
-			//impresion de verificación
+
+			// impresion de verificación
 			System.out.println("Registrado " + sentencia);
-			
-			//ejecutando la sentencia en la base de datos
+
+			// ejecutando la sentencia en la base de datos
 			consulta.execute(sentencia);
-			
-			//cerrando sentencia y conexión
+
+			// cerrando sentencia y conexión
 			consulta.close();
 			conex.desconectar();
 
 		} catch (SQLException e) {
-			//si hay un error en el sql mostrarlo
+			// si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
 			System.out.println("No se pudo eliminar el usuario");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
-			//si hay cualquier otro error mostrarlo
+			// si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
 			System.out.println("No se pudo eliminar el usuario");
 			System.out.println(e.getMessage());
@@ -241,40 +238,38 @@ public void eliminarUsuario(Integer cedula_usuario) {
 	}
 
 	public void actualizarUsuario(UsuarioVO user) {
-		
-		//instancia de conexion
+
+		// instancia de conexion
 		Conexion conex = new Conexion();
 
 		try {
-			//inicializando sentencia
+			// inicializando sentencia
 			Statement estatuto = conex.getConnection().createStatement();
-			
-			//String con la sentencia a ejecutar
-			String sentencia = "UPDATE usuarios "
-					+ "SET email_usuario = '"+user.getEmail_usuario()+"',"
-					+ "nombre_usuario = '"+user.getNombre_usuario()+"',"
-					+ "password = '"+user.getPassword()+"',"
-					+ "usuario = '"+user.getUsuario()+"' "
-					+ "WHERE cedula_usuario = "+user.getCedula_usuario()+";";
-			
-			//ejecuta la sentencia 
+
+			// String con la sentencia a ejecutar
+			String sentencia = "UPDATE usuarios " + "SET email_usuario = '" + user.getEmail_usuario() + "',"
+					+ "nombre_usuario = '" + user.getNombre_usuario() + "'," + "password = '" + user.getPassword()
+					+ "'," + "usuario = '" + user.getUsuario() + "' " + "WHERE cedula_usuario = "
+					+ user.getCedula_usuario() + ";";
+
+			// ejecuta la sentencia
 			estatuto.executeUpdate(sentencia);
-			
-			//verificación por consola de la sentencia
+
+			// verificación por consola de la sentencia
 			System.out.println("Registrado " + sentencia);
-			
-			//cerrando sentencia y conexión
+
+			// cerrando sentencia y conexión
 			estatuto.close();
 			conex.desconectar();
 
 		} catch (SQLException e) {
-			//si hay un error en el sql mostrarlo
+			// si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
 			System.out.println("No se pudo actualizar  el usuario");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
-			//si hay cualquier otro error mostrarlo
+			// si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
 			System.out.println("No se pudo eliminar el usuario");
 			System.out.println(e.getMessage());
@@ -282,6 +277,5 @@ public void eliminarUsuario(Integer cedula_usuario) {
 		}
 
 	}
-	
 
 }

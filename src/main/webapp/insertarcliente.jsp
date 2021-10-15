@@ -115,7 +115,7 @@
 
 			</form>
 
-			<button type="button" class="btn btn-success" onclick="enviar()">
+			<button type="button" class="btn btn-success" onclick="enviar_info()">
 				<i class="fas fa-check"></i> Insertar Nuevo Cliente
 			</button>
 
@@ -157,21 +157,29 @@
 			</div>
 		</div>
 	</nav>
+	
+		
 	<script>
-		function enviar() {
+			
+	function enviar_info() {			
+			
+			//var getUrl = window.location;
+			//var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
 			
 			var coincidencia = false;
 			var x = document.getElementById("cedula_cliente").value;
-			var req = new XMLHttpRequest();
-					
-			req.open('GET', 'http://localhost:8080/listarclientes', false);
+			var req = new XMLHttpRequest();	
+			req.open('GET', 'http://localhost:8080/listarclientes', false);			
+			 
 			req.send(null);
+			
+			
 			var clientes=null;
 			if (req.status == 200)
 				clientes=JSON.parse(req.responseText);
 			  	//console.log(JSON.parse(req.responseText));			  	
 			for (i = 0; i < clientes.length; i++) {
-				console.log(clientes[i].cedula_cliente);
+				//console.log(clientes[i].cedula_cliente);
 				if (clientes[i].cedula_cliente ==x ) {
 					//console.log(clientes[i].cedula_cliente +" "+x);	
 					coincidencia =true
@@ -182,14 +190,16 @@
 			
 			
 			if (coincidencia==false){
+				window.alert("encontre al cliente ");
 				var formData = new FormData();
 	 			formData.append("cedula_cliente", document.getElementById("cedula_cliente").value);
 	 			formData.append("direccion_cliente", document.getElementById("direccion_cliente").value);
 	 			formData.append("email_cliente", document.getElementById("email_cliente").value);	 			
 	 			formData.append("nombre_cliente",document.getElementById("nombre_cliente").value);
 	 			formData.append("telefono_cliente",document.getElementById("telefono_cliente").value);
-	 			var xhr = new XMLHttpRequest();
-	 			xhr.open("POST", "http://localhost:8080/registrarcliente");
+	 			var xhr = new XMLHttpRequest();	 			
+	 			 			
+	 			xhr.open("POST", 'http://localhost:8080/registrarcliente');
 	 			
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");

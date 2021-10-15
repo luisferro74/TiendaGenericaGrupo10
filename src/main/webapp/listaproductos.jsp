@@ -152,22 +152,25 @@ function subirArchivo() {
 			</a>
 		</div>
 	</nav>
-	
-	
+
+
 	<!-- contenido  -->
-	
+
 	<div style="padding-left: 5px;">
-	
-		<h1><i class="fas fa-list-ol"></i> Tabla de Productos</h1>
-			<div class="container">
-				
-				<div id="error" class="alert alert-danger visually-hidden"
-				role="alert">Archivo vacio, extensi�n no valida o datos corruptos (El separador debe ser coma ",")</div>
+
+		<h1>
+			<i class="fas fa-list-ol"></i> Tabla de Productos
+		</h1>
+		<div class="container">
+
+			<div id="error" class="alert alert-danger visually-hidden"
+				role="alert">Archivo vacio, extensi�n no valida o datos
+				corruptos (El separador debe ser coma ",")</div>
 
 			<div id="correcto" class="alert alert-success visually-hidden"
 				role="alert">Productos importados desde CSV con exito</div>
-				
-				<form id="form1">
+
+			<form id="form1">
 				<div>
 					<label for="formFileLg" class="form-label">Seleccionar
 						archivo CSV con el inventario de productos</label> <input
@@ -177,34 +180,40 @@ function subirArchivo() {
 						onclick="subirArchivo()">Subir archivo</button>
 				</div>
 
-				</form>
-				
-								
-				
-				<div class="row">
-					<!--  Aqui es donde se autogenera la tabla basado en el script -->
-					<div class="col align-self-center" id="productosinfo">
-					
-					</div>
-	
-				</div>
+			</form>
+
+
+
+			<div class="row">
+				<!--  Aqui es donde se autogenera la tabla basado en el script -->
+				<div class="col align-self-center" id="productosinfo"></div>
+
 			</div>
-	
-		<h1><i class="fas fa-cogs"></i> Operaciones</h1>
-			<div class="container">
-				<div class="row">
-					<button type="button" class="btn btn-success" onclick="#'">
-					<i class="fas fa-plus-circle"></i> Agregar Producto</button>
-					<button type="button" class="btn btn-danger" onclick="#'">
-					<i class="fas fa-trash"></i> Eliminar Producto</button>
-					<button type="button" class="btn btn-warning" onclick="#'">
-					<i class="fas fa-pen-alt"></i> Actualizar Producto</button>
-					<button type="button" class="btn btn-primary" onclick="#'">
-					<i class="fas fa-search"></i> Buscar un producto</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/listaproductos.jsp'">
-					<i class="fas fa-search"></i> Listar todos los Productos</button>
-				</div>
+		</div>
+
+		<h1>
+			<i class="fas fa-cogs"></i> Operaciones
+		</h1>
+		<div class="container">
+			<div class="row">
+				<button type="button" class="btn btn-success" onclick="#'">
+					<i class="fas fa-plus-circle"></i> Agregar Producto
+				</button>
+				<button type="button" class="btn btn-danger" onclick="#'">
+					<i class="fas fa-trash"></i> Eliminar Producto
+				</button>
+				<button type="button" class="btn btn-warning" onclick="#'">
+					<i class="fas fa-pen-alt"></i> Actualizar Producto
+				</button>
+				<button type="button" class="btn btn-primary" onclick="#'">
+					<i class="fas fa-search"></i> Buscar un producto
+				</button>
+				<button type="button" class="btn btn-primary"
+					onclick="window.location.href='/listaproductos.jsp'">
+					<i class="fas fa-search"></i> Listar todos los Productos
+				</button>
 			</div>
+		</div>
 	</div>
 
 
@@ -212,8 +221,7 @@ function subirArchivo() {
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado por Grupo 10 <i
-					class="fas fa-code-branch"></i></a>
+					Diseñado por Grupo 10 <i class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
 	</nav>

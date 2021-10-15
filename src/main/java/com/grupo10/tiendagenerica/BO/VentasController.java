@@ -40,6 +40,7 @@ public class VentasController {
 		return Dao.listaDeVentas();
 	}
 	
+		
 	
 	@DeleteMapping("/eliminarventa")
 	public void eliminarVenta(Integer codigo_venta) {
@@ -51,6 +52,14 @@ public class VentasController {
 	public void actualizarVenta(VentasVO venta) {
 		VentasDAO Dao = new VentasDAO();
 		Dao.actualizarVenta(venta);
+	}
+	
+	@GetMapping("/contarventa")
+	public int contarVenta() {
+		int numero_venta;
+		VentasDAO Dao = new VentasDAO();
+		numero_venta= Dao.contarVenta();
+		return numero_venta;
 	}
 	
 }

@@ -42,8 +42,9 @@
 					main += "<tr><td>" + proveedores[i].nit_proveedor
 							+ "</td><td>" + proveedores[i].ciudad_proveedor
 							+ "</td><td>" + proveedores[i].direccion_proveedor
-							+ "</td><td>" + proveedores[i].nombre_proveedor + "</td><td>"
-							+ proveedores[i].telefono_proveedor + "</td></tr>";
+							+ "</td><td>" + proveedores[i].nombre_proveedor
+							+ "</td><td>" + proveedores[i].telefono_proveedor
+							+ "</td></tr>";
 				}
 				var tblbottom = "</table>";
 				var tbl = tbltop + main + tblbottom;
@@ -87,44 +88,50 @@
 			</a>
 		</div>
 	</nav>
-	
-	
+
+
 	<!-- contenido  -->
-	
+
 	<div style="padding-left: 5px;">
-	
-		<h1><i class="fas fa-list-ol"></i> Tabla de proveedores</h1>
-			<div class="container">
-				<div class="row">
-					<!--  Aqui es donde se autogenera la tabla basado en el script -->
-					<div class="col align-self-center" id="proveedoresinfo">
-					
-					</div>
-	
-				</div>
+
+		<h1>
+			<i class="fas fa-list-ol"></i> Tabla de proveedores
+		</h1>
+		<div class="container">
+			<div class="row">
+				<!--  Aqui es donde se autogenera la tabla basado en el script -->
+				<div class="col align-self-center" id="proveedoresinfo"></div>
+
 			</div>
-	
-		<h1><i class="fas fa-cogs"></i> Operaciones</h1>
-			<div class="container">
-				<div class="row">
-					<button type="button" class="btn btn-success"
-						onclick="window.location.href='/insertarproveedor.jsp'">
-						<i class="fas fa-plus-circle"></i> Agregar proveedor
-					</button>
-					<button type="button" class="btn btn-danger" onclick="window.location.href='/eliminarproveedor.jsp'">
-						<i class="fas fa-trash"></i> Eliminar proveedor
-					</button>
-					<button type="button" class="btn btn-warning" onclick="window.location.href='/actualizarproveedor.jsp'">
-						<i class="fas fa-pen-alt"></i> Actualizar proveedor
-					</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/buscarproveedor.jsp'">
-						<i class="fas fa-search"></i> Buscar un proveedor
-					</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/listaproveedores.jsp'">
-						<i class="fas fa-search"></i> Listar todos los proveedores
-					</button>
-				</div>
+		</div>
+
+		<h1>
+			<i class="fas fa-cogs"></i> Operaciones
+		</h1>
+		<div class="container">
+			<div class="row">
+				<button type="button" class="btn btn-success"
+					onclick="window.location.href='/insertarproveedor.jsp'">
+					<i class="fas fa-plus-circle"></i> Agregar proveedor
+				</button>
+				<button type="button" class="btn btn-danger"
+					onclick="window.location.href='/eliminarproveedor.jsp'">
+					<i class="fas fa-trash"></i> Eliminar proveedor
+				</button>
+				<button type="button" class="btn btn-warning"
+					onclick="window.location.href='/actualizarproveedor.jsp'">
+					<i class="fas fa-pen-alt"></i> Actualizar proveedor
+				</button>
+				<button type="button" class="btn btn-primary"
+					onclick="window.location.href='/buscarproveedor.jsp'">
+					<i class="fas fa-search"></i> Buscar un proveedor
+				</button>
+				<button type="button" class="btn btn-primary"
+					onclick="window.location.href='/listaproveedores.jsp'">
+					<i class="fas fa-search"></i> Listar todos los proveedores
+				</button>
 			</div>
+		</div>
 	</div>
 
 
@@ -132,8 +139,7 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado por Grupo 10 <i
-					class="fas fa-code-branch"></i></a>
+					Diseñado por Grupo 10 <i class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
 	</nav>

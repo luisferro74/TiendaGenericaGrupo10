@@ -73,75 +73,80 @@
 				role="alert">Cliente encontrado con exito</div>
 
 			<form id="form1">
-			
+
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon4">Cliente a buscar</span> <input
-						type="text" class="form-control"
+					<span class="input-group-text" id="basic-addon4">Cliente a
+						buscar</span> <input type="text" class="form-control"
 						placeholder="Inserte username aqui..."
-						aria-describedby="basic-addon4" required id="cliente_search" >
+						aria-describedby="basic-addon4" required id="cliente_search">
 				</div>
-				<br>
-				<br>
-				<br>
+				<br> <br> <br>
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Cedula Cliente</span> <input
-						type="text" class="form-control"
-						aria-describedby="basic-addon1" required id="cedula_cliente" disabled="disabled">
-				</div>
-
-				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon2">Direccion Cliente</span> <input
-						type="text" class="form-control"
-						aria-describedby="basic-addon2" required id="direccion_cliente" disabled="disabled">
+					<span class="input-group-text" id="basic-addon1">Cedula
+						Cliente</span> <input type="text" class="form-control"
+						aria-describedby="basic-addon1" required id="cedula_cliente"
+						disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon3">Email Cliente</span>
-					<input type="text" class="form-control"
-						aria-describedby="basic-addon3" required id="email_cliente"  disabled="disabled">
+					<span class="input-group-text" id="basic-addon2">Direccion
+						Cliente</span> <input type="text" class="form-control"
+						aria-describedby="basic-addon2" required id="direccion_cliente"
+						disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon4">Nombre Cliente</span> <input
-						type="text" class="form-control"
-						aria-describedby="basic-addon4" required id="nombre_cliente"  disabled="disabled">
+					<span class="input-group-text" id="basic-addon3">Email
+						Cliente</span> <input type="text" class="form-control"
+						aria-describedby="basic-addon3" required id="email_cliente"
+						disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon5">Telefono Cliente</span> <input
-						type="text" class="form-control"
-						aria-describedby="basic-addon5" required id="telefono_cliente"  disabled="disabled">
+					<span class="input-group-text" id="basic-addon4">Nombre
+						Cliente</span> <input type="text" class="form-control"
+						aria-describedby="basic-addon4" required id="nombre_cliente"
+						disabled="disabled">
+				</div>
+
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon5">Telefono
+						Cliente</span> <input type="text" class="form-control"
+						aria-describedby="basic-addon5" required id="telefono_cliente"
+						disabled="disabled">
 				</div>
 			</form>
 
-			<button type="button" class="btn btn-primary" onclick="enviar_cliente()">
+			<button type="button" class="btn btn-primary"
+				onclick="enviar_cliente()">
 				<i class="fas fa-search"></i> Buscar Cliente
 			</button>
-			
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+
+			<br> <br> <br> <br> <br>
 
 			<h1>
 				<i class="fas fa-cogs"></i> Operaciones
 			</h1>
 			<div class="container">
 				<div class="row">
-					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarcliente.jsp'">
+					<button type="button" class="btn btn-success"
+						onclick="window.location.href='/insertarcliente.jsp'">
 						<i class="fas fa-plus-circle"></i> Agregar Cliente
 					</button>
-					<button type="button" class="btn btn-danger" onclick="window.location.href='/eliminarcliente.jsp'">
+					<button type="button" class="btn btn-danger"
+						onclick="window.location.href='/eliminarcliente.jsp'">
 						<i class="fas fa-trash"></i> Eliminar Cliente
 					</button>
-					<button type="button" class="btn btn-warning" onclick="window.location.href='/actualizarcliente.jsp'">
+					<button type="button" class="btn btn-warning"
+						onclick="window.location.href='/actualizarcliente.jsp'">
 						<i class="fas fa-pen-alt"></i> Actualizar Cliente
 					</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/buscarcliente.jsp'">
+					<button type="button" class="btn btn-primary"
+						onclick="window.location.href='/buscarcliente.jsp'">
 						<i class="fas fa-search"></i> Buscar un Cliente
 					</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/listaclientes.jsp'">
+					<button type="button" class="btn btn-primary"
+						onclick="window.location.href='/listaclientes.jsp'">
 						<i class="fas fa-search"></i> Listar Todos los Clientes
 					</button>
 				</div>
@@ -153,47 +158,46 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado por Grupo 10 <i
-					class="fas fa-code-branch"></i></a>
+					Diseñado por Grupo 10 <i class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
 	</nav>
 	<script>
 		function enviar_cliente() {
 
-				//window.alert("Entre");
-				var req = new XMLHttpRequest();
-				var coincidencia = false;
-				var dato= document.getElementById("cliente_search").value;
-				req.open('GET', 'http://localhost:8080/consultarclientes?cedula_cliente='+dato, false);
-				req.send(null);
-				var cliente = null;
-				if (req.status == 200)
+			//window.alert("Entre");
+			var req = new XMLHttpRequest();
+			var coincidencia = false;
+			var dato = document.getElementById("cliente_search").value;
+			req.open('GET',
+					'http://localhost:8080/consultarclientes?cedula_cliente='
+							+ dato, false);
+			req.send(null);
+			var cliente = null;
+			if (req.status == 200)
 				cliente = JSON.parse(req.responseText);
-				console.log(JSON.parse(req.responseText));
-							
-				
-				var element = document.getElementById("error");
-				element.classList.add("visually-hidden");
-				var element2 = document.getElementById("correcto");
-				element2.classList.remove("visually-hidden");
-				
-				console.log(cliente.toString());
-				
-			if (cliente.toString()!=""){
-				window.alert("Encontre el cliente "+ dato);
+			console.log(JSON.parse(req.responseText));
+
+			var element = document.getElementById("error");
+			element.classList.add("visually-hidden");
+			var element2 = document.getElementById("correcto");
+			element2.classList.remove("visually-hidden");
+
+			console.log(cliente.toString());
+
+			if (cliente.toString() != "") {
+				window.alert("Encontre el cliente " + dato);
 
 				document.getElementById("cedula_cliente").value = cliente[0].cedula_cliente;
 				document.getElementById("direccion_cliente").value = cliente[0].direccion_cliente;
 				document.getElementById("email_cliente").value = cliente[0].email_cliente;
 				document.getElementById("nombre_cliente").value = cliente[0].nombre_cliente;
 				document.getElementById("telefono_cliente").value = cliente[0].telefono_cliente;
-				
+
 				document.getElementById("cliente_search").value = "";
-			
 
 			} else {
-				window.alert("No Encontre el cliente "+ dato);
+				window.alert("No Encontre el cliente " + dato);
 				var element = document.getElementById("error");
 				element.classList.remove("visually-hidden");
 				var element2 = document.getElementById("correcto");

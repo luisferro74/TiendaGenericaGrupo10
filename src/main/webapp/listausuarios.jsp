@@ -87,39 +87,51 @@
 			</a>
 		</div>
 	</nav>
-	
-	
+
+
 	<!-- contenido  -->
-	
+
 	<div style="padding-left: 5px;">
-	
-		<h1><i class="fas fa-list-ol"></i> Tabla de usuarios</h1>
-			<div class="container">
-				
-				<div class="row">
-					<!--  Aqui es donde se autogenera la tabla basado en el script -->
-					<div class="col align-self-center" id="usuariosinfo">
-					
-					</div>
-	
-				</div>
+
+		<h1>
+			<i class="fas fa-list-ol"></i> Tabla de usuarios
+		</h1>
+		<div class="container">
+
+			<div class="row">
+				<!--  Aqui es donde se autogenera la tabla basado en el script -->
+				<div class="col align-self-center" id="usuariosinfo"></div>
+
 			</div>
-	
-		<h1><i class="fas fa-cogs"></i> Operaciones</h1>
-			<div class="container">
-				<div class="row">
-					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarusuario.jsp'">
-					<i class="fas fa-plus-circle"></i> Agregar usuario</button>
-					<button type="button" class="btn btn-danger" onclick="window.location.href='/eliminarusuario.jsp'">
-					<i class="fas fa-trash"></i> Eliminar usuario</button>
-					<button type="button" class="btn btn-warning" onclick="window.location.href='/actualizarusuario.jsp'">
-					<i class="fas fa-pen-alt"></i> Actualizar usuario</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/buscarusuario.jsp'">
-					<i class="fas fa-search"></i> Buscar un usuario</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/listausuarios.jsp'">
-					<i class="fas fa-search"></i> Listar todos los usuarios</button>
-				</div>
+		</div>
+
+		<h1>
+			<i class="fas fa-cogs"></i> Operaciones
+		</h1>
+		<div class="container">
+			<div class="row">
+				<button type="button" class="btn btn-success"
+					onclick="window.location.href='/insertarusuario.jsp'">
+					<i class="fas fa-plus-circle"></i> Agregar usuario
+				</button>
+				<button type="button" class="btn btn-danger"
+					onclick="window.location.href='/eliminarusuario.jsp'">
+					<i class="fas fa-trash"></i> Eliminar usuario
+				</button>
+				<button type="button" class="btn btn-warning"
+					onclick="window.location.href='/actualizarusuario.jsp'">
+					<i class="fas fa-pen-alt"></i> Actualizar usuario
+				</button>
+				<button type="button" class="btn btn-primary"
+					onclick="window.location.href='/buscarusuario.jsp'">
+					<i class="fas fa-search"></i> Buscar un usuario
+				</button>
+				<button type="button" class="btn btn-primary"
+					onclick="window.location.href='/listausuarios.jsp'">
+					<i class="fas fa-search"></i> Listar todos los usuarios
+				</button>
 			</div>
+		</div>
 	</div>
 
 

@@ -71,75 +71,76 @@
 				role="alert">Usuario encontrado con exito</div>
 
 			<form id="form1">
-			
+
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon4">Usuario a buscar</span> <input
-						type="text" class="form-control"
+					<span class="input-group-text" id="basic-addon4">Usuario a
+						buscar</span> <input type="text" class="form-control"
 						placeholder="Inserte username aqui..."
-						aria-describedby="basic-addon4" required id="usersearch" >
+						aria-describedby="basic-addon4" required id="usersearch">
 				</div>
-				<br>
-				<br>
-				<br>
+				<br> <br> <br>
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Cedula</span> <input
-						type="text" class="form-control"
-						aria-describedby="basic-addon1" required id="cedula_usuario" disabled="disabled">
+						type="text" class="form-control" aria-describedby="basic-addon1"
+						required id="cedula_usuario" disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon2">Email</span> <input
-						type="text" class="form-control"
-						aria-describedby="basic-addon2" required id="email_usuario" disabled="disabled">
+						type="text" class="form-control" aria-describedby="basic-addon2"
+						required id="email_usuario" disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon3">Nombrecompleto</span>
 					<input type="text" class="form-control"
-						aria-describedby="basic-addon3" required id="nombre_usuario"  disabled="disabled">
+						aria-describedby="basic-addon3" required id="nombre_usuario"
+						disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon4">Username</span> <input
-						type="text" class="form-control"
-						aria-describedby="basic-addon4" required id="user"  disabled="disabled">
+						type="text" class="form-control" aria-describedby="basic-addon4"
+						required id="user" disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon5">Password</span> <input
-						type="text" class="form-control"
-						aria-describedby="basic-addon5" required id="password"  disabled="disabled">
+						type="text" class="form-control" aria-describedby="basic-addon5"
+						required id="password" disabled="disabled">
 				</div>
 			</form>
 
-			<button type="button" class="btn btn-primary" onclick="enviar_usuario()">
+			<button type="button" class="btn btn-primary"
+				onclick="enviar_usuario()">
 				<i class="fas fa-search"></i> Buscar usuario
 			</button>
-			
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+
+			<br> <br> <br> <br> <br>
 
 			<h1>
 				<i class="fas fa-cogs"></i> Operaciones
 			</h1>
 			<div class="container">
 				<div class="row">
-					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarusuario.jsp'">
+					<button type="button" class="btn btn-success"
+						onclick="window.location.href='/insertarusuario.jsp'">
 						<i class="fas fa-plus-circle"></i> Agregar usuario
 					</button>
-					<button type="button" class="btn btn-danger" onclick="window.location.href='/eliminarusuario.jsp'">
+					<button type="button" class="btn btn-danger"
+						onclick="window.location.href='/eliminarusuario.jsp'">
 						<i class="fas fa-trash"></i> Eliminar usuario
 					</button>
-					<button type="button" class="btn btn-warning" onclick="window.location.href='/actualizarusuario.jsp'">
+					<button type="button" class="btn btn-warning"
+						onclick="window.location.href='/actualizarusuario.jsp'">
 						<i class="fas fa-pen-alt"></i> Actualizar usuario
 					</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/buscarusuario.jsp'">
+					<button type="button" class="btn btn-primary"
+						onclick="window.location.href='/buscarusuario.jsp'">
 						<i class="fas fa-search"></i> Buscar un usuario
 					</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/listausuarios.jsp'">
+					<button type="button" class="btn btn-primary"
+						onclick="window.location.href='/listausuarios.jsp'">
 						<i class="fas fa-search"></i> Listar todos los usuarios
 					</button>
 				</div>
@@ -151,8 +152,7 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado por Grupo 10 <i
-					class="fas fa-code-branch"></i></a>
+					Diseñado por Grupo 10 <i class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
 	</nav>
@@ -160,37 +160,37 @@
 		function enviar_usuario() {
 
 			//window.alert("Entre");
-				var req = new XMLHttpRequest();
-				var coincidencia = false;
-				var user= document.getElementById("usersearch").value;
-				req.open('GET', 'http://localhost:8080/consultarusuario?usuario='+user, false);
-				req.send(null);
-				var usuario = null;
-				if (req.status == 200)
+			var req = new XMLHttpRequest();
+			var coincidencia = false;
+			var user = document.getElementById("usersearch").value;
+			req.open('GET', 'http://localhost:8080/consultarusuario?usuario='
+					+ user, false);
+			req.send(null);
+			var usuario = null;
+			if (req.status == 200)
 				usuario = JSON.parse(req.responseText);
-				console.log(JSON.parse(req.responseText));
-			
-				var element = document.getElementById("error");
-				element.classList.add("visually-hidden");
-				var element2 = document.getElementById("correcto");
-				element2.classList.remove("visually-hidden");
-				
-				console.log(usuario.toString());
-				
-			if (usuario.toString()!=""){
-				window.alert("Encontre el usuario "+ user);
+			console.log(JSON.parse(req.responseText));
+
+			var element = document.getElementById("error");
+			element.classList.add("visually-hidden");
+			var element2 = document.getElementById("correcto");
+			element2.classList.remove("visually-hidden");
+
+			console.log(usuario.toString());
+
+			if (usuario.toString() != "") {
+				window.alert("Encontre el usuario " + user);
 
 				document.getElementById("cedula_usuario").value = usuario[0].cedula_usuario;
 				document.getElementById("email_usuario").value = usuario[0].email_usuario;
 				document.getElementById("nombre_usuario").value = usuario[0].nombre_usuario;
 				document.getElementById("password").value = usuario[0].password;
 				document.getElementById("user").value = usuario[0].usuario;
-				
+
 				document.getElementById("usersearch").value = "";
-			
 
 			} else {
-				window.alert("No Encontre el usuario "+ user);
+				window.alert("No Encontre el usuario " + user);
 				var element = document.getElementById("error");
 				element.classList.remove("visually-hidden");
 				var element2 = document.getElementById("correcto");

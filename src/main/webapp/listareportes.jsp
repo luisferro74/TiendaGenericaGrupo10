@@ -100,6 +100,15 @@
 						<div class="col align-self-center" id="venta_clientes_info">					
 						</div>
 					</div>
+					
+					<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon1">Nombre Cliente</span> 
+					<input type="text" class="form-control"	placeholder="Nombre Cliente..."
+						aria-describedby="basic-addon1" required id="nombre_cliente">
+					<input type="text" class="form-control"	placeholder="Total Compra Cliente..."
+					aria-describedby="basic-addon1" required id="total_cliente">					
+				
+					
 	
 				</div>
 			</div>
@@ -172,6 +181,9 @@ function reporte_lista_usuarios() {
 	
 	
 	function reporte_ventas_cliente() {
+		
+		window.alert("inserte la cedula del cliente a mostrar");
+		
 		var baseurl = "http://localhost:8080/listarventas";
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.open("GET", baseurl, true);

@@ -67,48 +67,52 @@
 
 
 			<div id="error" class="alert alert-danger visually-hidden"
-				role="alert">Error al eliminar el cliente, verifique que 
+				role="alert">Error al eliminar el cliente, verifique que
 				exista un cliente con la cedula dados</div>
 
 			<div id="correcto" class="alert alert-success visually-hidden"
 				role="alert">Cliente eliminado con exito</div>
 
 			<form id="form1">
-			
+
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Cedula Cliente</span> <input
-						type="text" class="form-control"
+					<span class="input-group-text" id="basic-addon1">Cedula
+						Cliente</span> <input type="text" class="form-control"
 						placeholder="Inserte cedula aqui..."
 						aria-describedby="basic-addon1" required id="cedula_cliente">
 				</div>
 
 			</form>
 
-			<button type="button" class="btn btn-danger" onclick="eliminar_cliente()">
+			<button type="button" class="btn btn-danger"
+				onclick="eliminar_cliente()">
 				<i class="fas fa-skull-crossbones"></i> Eliminar Cliente
 			</button>
-			
-			<br>
-			<br>
-			<br>
+
+			<br> <br> <br>
 			<h1>
 				<i class="fas fa-cogs"></i> Operaciones
 			</h1>
 			<div class="container">
 				<div class="row">
-					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarcliente.jsp'">
+					<button type="button" class="btn btn-success"
+						onclick="window.location.href='/insertarcliente.jsp'">
 						<i class="fas fa-plus-circle"></i> Agregar cliente
 					</button>
-					<button type="button" class="btn btn-danger" onclick="window.location.href='/eliminarcliente.jsp'">
+					<button type="button" class="btn btn-danger"
+						onclick="window.location.href='/eliminarcliente.jsp'">
 						<i class="fas fa-trash"></i> Eliminar cliente
 					</button>
-					<button type="button" class="btn btn-warning" onclick="window.location.href='/actualizarcliente.jsp'">
+					<button type="button" class="btn btn-warning"
+						onclick="window.location.href='/actualizarcliente.jsp'">
 						<i class="fas fa-pen-alt"></i> Actualizar cliente
 					</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/buscarcliente.jsp'">
+					<button type="button" class="btn btn-primary"
+						onclick="window.location.href='/buscarcliente.jsp'">
 						<i class="fas fa-search"></i> Buscar un cliente
 					</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/listaclientes.jsp'">
+					<button type="button" class="btn btn-primary"
+						onclick="window.location.href='/listaclientes.jsp'">
 						<i class="fas fa-search"></i> Listar todos los clientes
 					</button>
 				</div>
@@ -120,14 +124,13 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado por Grupo 10 <i
-					class="fas fa-code-branch"></i></a>
+					Diseñado por Grupo 10 <i class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
 	</nav>
 	<script>
 		function eliminar_cliente() {
-			
+
 			//window.alert("Entre");
 			var y = document.getElementById("cedula_cliente").value;
 			var req = new XMLHttpRequest();
@@ -139,7 +142,7 @@
 				clientes = JSON.parse(req.responseText);
 			console.log(JSON.parse(req.responseText));
 
-			for (i = 0; i < clientes.length; i++) {				
+			for (i = 0; i < clientes.length; i++) {
 				console.log(clientes[i].cedula_cliente);
 				if (clientes[i].cedula_cliente == y) {
 					//window.alert("Encontre el cliente con la cédula " + y);
@@ -152,14 +155,16 @@
 
 			if (coincidencia != false) {
 				window.alert("Encontre la cedula  " + y);
-				var cedula=document.getElementById("cedula_cliente").value;
-				
+				var cedula = document.getElementById("cedula_cliente").value;
+
 				var xhr = new XMLHttpRequest();
-				xhr.open("DELETE", "http://localhost:8080/eliminarclientes?cedula_cliente="+cedula);
-				
+				xhr.open("DELETE",
+						"http://localhost:8080/eliminarclientes?cedula_cliente="
+								+ cedula);
+
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");
-				
+
 				var element2 = document.getElementById("correcto");
 				element2.classList.remove("visually-hidden");
 
@@ -170,11 +175,12 @@
 				window.alert("No Encontre la cedula" + y);
 				var element = document.getElementById("error");
 				element.classList.remove("visually-hidden");
-				
+
 				var element2 = document.getElementById("correcto");
 				element2.classList.add("visually-hidden");
-				
-				document.getElementById("cedula_cliente").value = "";;
+
+				document.getElementById("cedula_cliente").value = "";
+				;
 			}
 		}
 	</script>

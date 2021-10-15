@@ -67,14 +67,14 @@
 
 
 			<div id="error" class="alert alert-danger visually-hidden"
-				role="alert">Error al eliminar el usuario, verifique que 
+				role="alert">Error al eliminar el usuario, verifique que
 				exista un usuario con la cedula y usuario dados</div>
 
 			<div id="correcto" class="alert alert-success visually-hidden"
 				role="alert">Usuario eliminado con exito</div>
 
 			<form id="form1">
-			
+
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Cedula</span> <input
 						type="text" class="form-control"
@@ -84,28 +84,37 @@
 
 			</form>
 
-			<button type="button" class="btn btn-danger" onclick="eliminar_usuario()">
+			<button type="button" class="btn btn-danger"
+				onclick="eliminar_usuario()">
 				<i class="fas fa-skull-crossbones"></i> Eliminar usuario
 			</button>
-			
-			<br>
-			<br>
-			<br>
+
+			<br> <br> <br>
 			<h1>
 				<i class="fas fa-cogs"></i> Operaciones
 			</h1>
 			<div class="container">
 				<div class="row">
-					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarusuario.jsp'">
-					<i class="fas fa-plus-circle"></i> Agregar usuario</button>
-					<button type="button" class="btn btn-danger" onclick="window.location.href='/eliminarusuario.jsp'">
-					<i class="fas fa-trash"></i> Eliminar usuario</button>
-					<button type="button" class="btn btn-warning" onclick="window.location.href='/actualizarusuario.jsp'">
-					<i class="fas fa-pen-alt"></i> Actualizar usuario</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/buscarusuario.jsp'">
-					<i class="fas fa-search"></i> Buscar un usuario</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/listausuarios.jsp'">
-					<i class="fas fa-search"></i> Listar todos los usuarios</button>
+					<button type="button" class="btn btn-success"
+						onclick="window.location.href='/insertarusuario.jsp'">
+						<i class="fas fa-plus-circle"></i> Agregar usuario
+					</button>
+					<button type="button" class="btn btn-danger"
+						onclick="window.location.href='/eliminarusuario.jsp'">
+						<i class="fas fa-trash"></i> Eliminar usuario
+					</button>
+					<button type="button" class="btn btn-warning"
+						onclick="window.location.href='/actualizarusuario.jsp'">
+						<i class="fas fa-pen-alt"></i> Actualizar usuario
+					</button>
+					<button type="button" class="btn btn-primary"
+						onclick="window.location.href='/buscarusuario.jsp'">
+						<i class="fas fa-search"></i> Buscar un usuario
+					</button>
+					<button type="button" class="btn btn-primary"
+						onclick="window.location.href='/listausuarios.jsp'">
+						<i class="fas fa-search"></i> Listar todos los usuarios
+					</button>
 				</div>
 			</div>
 		</div>
@@ -115,14 +124,13 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado por Grupo 10 <i
-					class="fas fa-code-branch"></i></a>
+					Diseñado por Grupo 10 <i class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
 	</nav>
 	<script>
 		function eliminar_usuario() {
-			
+
 			//window.alert("Entre");
 			var y = document.getElementById("cedula_usuario").value;
 			var req = new XMLHttpRequest();
@@ -134,7 +142,7 @@
 				usuarios = JSON.parse(req.responseText);
 			console.log(JSON.parse(req.responseText));
 
-			for (i = 0; i < usuarios.length; i++) {				
+			for (i = 0; i < usuarios.length; i++) {
 				console.log(usuarios[i].cedula_usuario);
 				if (usuarios[i].cedula_usuario == y) {
 					//window.alert("Encontre la cedula del usuario");
@@ -147,14 +155,16 @@
 
 			if (coincidencia != false) {
 				window.alert("Encontre la cedula  " + y);
-				var cedula=document.getElementById("cedula_usuario").value;
-				
+				var cedula = document.getElementById("cedula_usuario").value;
+
 				var xhr = new XMLHttpRequest();
-				xhr.open("DELETE", "http://localhost:8080/eliminarusuario?cedula_usuario="+cedula);
-				
+				xhr.open("DELETE",
+						"http://localhost:8080/eliminarusuario?cedula_usuario="
+								+ cedula);
+
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");
-				
+
 				var element2 = document.getElementById("correcto");
 				element2.classList.remove("visually-hidden");
 
@@ -165,11 +175,12 @@
 				window.alert("No Encontre la cedula  " + y);
 				var element = document.getElementById("error");
 				element.classList.remove("visually-hidden");
-				
+
 				var element2 = document.getElementById("correcto");
 				element2.classList.add("visually-hidden");
-				
-				document.getElementById("cedula_usuario").value = "";;
+
+				document.getElementById("cedula_usuario").value = "";
+				;
 			}
 		}
 	</script>

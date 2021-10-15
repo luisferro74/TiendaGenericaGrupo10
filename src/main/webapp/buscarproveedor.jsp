@@ -67,144 +67,148 @@
 
 
 			<div id="error" class="alert alert-danger visually-hidden"
-				role="alert">Error al buscar el proveedor, el proveedor no existe</div>
+				role="alert">Error al buscar el proveedor, el proveedor no
+				existe</div>
 
 			<div id="correcto" class="alert alert-success visually-hidden"
 				role="alert">Proveedor encontrado con exito</div>
 
 			<form id="form1">
-			
+
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon4">Proveedor a buscar</span> <input
-						type="text" class="form-control"
+					<span class="input-group-text" id="basic-addon4">Proveedor a
+						buscar</span> <input type="text" class="form-control"
 						placeholder="Inserte nit proveedor aqui..."
-						aria-describedby="basic-addon4" required id="proveedor_search" >
+						aria-describedby="basic-addon4" required id="proveedor_search">
 				</div>
-				<br>
-				<br>
-				<br>
+				<br> <br> <br>
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Nit Proveedor</span> <input
-						type="text" class="form-control"
-						aria-describedby="basic-addon1" required id="nit_proveedor" disabled="disabled">
-				</div>
-
-				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon2">Ciudad Proveedor</span> <input
-						type="text" class="form-control"
-						aria-describedby="basic-addon2" required id="ciudad_proveedor" disabled="disabled">
+					<span class="input-group-text" id="basic-addon1">Nit
+						Proveedor</span> <input type="text" class="form-control"
+						aria-describedby="basic-addon1" required id="nit_proveedor"
+						disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon3">Direccion Proveedor</span>
-					<input type="text" class="form-control"
-						aria-describedby="basic-addon3" required id="direccion_proveedor"  disabled="disabled">
+					<span class="input-group-text" id="basic-addon2">Ciudad
+						Proveedor</span> <input type="text" class="form-control"
+						aria-describedby="basic-addon2" required id="ciudad_proveedor"
+						disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon4">Nombre Proveedor</span> <input
-						type="text" class="form-control"
-						aria-describedby="basic-addon4" required id="nombre_proveedor"  disabled="disabled">
+					<span class="input-group-text" id="basic-addon3">Direccion
+						Proveedor</span> <input type="text" class="form-control"
+						aria-describedby="basic-addon3" required id="direccion_proveedor"
+						disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon5">Telefono Proveedor</span> <input
-						type="text" class="form-control"
-						aria-describedby="basic-addon5" required id="telefono_proveedor"  disabled="disabled">
+					<span class="input-group-text" id="basic-addon4">Nombre
+						Proveedor</span> <input type="text" class="form-control"
+						aria-describedby="basic-addon4" required id="nombre_proveedor"
+						disabled="disabled">
+				</div>
+
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon5">Telefono
+						Proveedor</span> <input type="text" class="form-control"
+						aria-describedby="basic-addon5" required id="telefono_proveedor"
+						disabled="disabled">
 				</div>
 			</form>
 
-			<button type="button" class="btn btn-primary" onclick="enviar_proveedor()">
+			<button type="button" class="btn btn-primary"
+				onclick="enviar_proveedor()">
 				<i class="fas fa-search"></i> Buscar Proveedor
 			</button>
-			
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+
+			<br> <br> <br> <br> <br>
 
 			<h1>
 				<i class="fas fa-cogs"></i> Operaciones
 			</h1>
 			<div class="container">
 				<div class="row">
-					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarproveedor.jsp'">
+					<button type="button" class="btn btn-success"
+						onclick="window.location.href='/insertarproveedor.jsp'">
 						<i class="fas fa-plus-circle"></i> Agregar proveedor
 					</button>
-					<button type="button" class="btn btn-danger" onclick="window.location.href='/eliminarproveedor.jsp'">
+					<button type="button" class="btn btn-danger"
+						onclick="window.location.href='/eliminarproveedor.jsp'">
 						<i class="fas fa-trash"></i> Eliminar proveedor
 					</button>
-					<button type="button" class="btn btn-warning" onclick="window.location.href='/actualizarproveedor.jsp'">
+					<button type="button" class="btn btn-warning"
+						onclick="window.location.href='/actualizarproveedor.jsp'">
 						<i class="fas fa-pen-alt"></i> Actualizar proveedor
 					</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/buscarproveedor.jsp'">
+					<button type="button" class="btn btn-primary"
+						onclick="window.location.href='/buscarproveedor.jsp'">
 						<i class="fas fa-search"></i> Buscar un proveedor
 					</button>
-					<button type="button" class="btn btn-primary" onclick="window.location.href='/listaproveedores.jsp'">
+					<button type="button" class="btn btn-primary"
+						onclick="window.location.href='/listaproveedores.jsp'">
 						<i class="fas fa-search"></i> Listar todos los proveedores
 					</button>
+				</div>
 			</div>
-		</div>
 
-	</div>
-	<nav class="navbar fixed-bottom navbar-dark bg-dark">
-		<div class="row justify-content-between">
-			<div class="col-4">
-				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado por Grupo 10 <i
-					class="fas fa-code-branch"></i></a>
+		</div>
+		<nav class="navbar fixed-bottom navbar-dark bg-dark">
+			<div class="row justify-content-between">
+				<div class="col-4">
+					<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
+						Diseñado por Grupo 10 <i class="fas fa-code-branch"></i></a>
+				</div>
 			</div>
-		</div>
-	</nav>
-	<script>
-		function enviar_proveedor() {
+		</nav>
+		<script>
+			function enviar_proveedor() {
 
-			//window.alert("Entre");
+				//window.alert("Entre");
 				var req = new XMLHttpRequest();
 				var coincidencia = false;
-				var dato= document.getElementById("proveedor_search").value;
-				req.open('GET', 'http://localhost:8080/consultarproveedores?proveedor='+dato, false);
+				var dato = document.getElementById("proveedor_search").value;
+				req.open('GET',
+						'http://localhost:8080/consultarproveedores?proveedor='
+								+ dato, false);
 				req.send(null);
 				var proveedor = null;
 				if (req.status == 200)
-				proveedor = JSON.parse(req.responseText);
+					proveedor = JSON.parse(req.responseText);
 				console.log(JSON.parse(req.responseText));
-							
-				
+
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");
 				var element2 = document.getElementById("correcto");
 				element2.classList.remove("visually-hidden");
-				
+
 				console.log(proveedor.toString());
-				
-			if (proveedor.toString()!=""){
-				window.alert("Encontre Proveedor con Nit  "+ dato);
 
-				document.getElementById("nit_proveedor").value = proveedor[0].nit_proveedor;
-				document.getElementById("ciudad_proveedor").value = proveedor[0].ciudad_proveedor;
-				document.getElementById("direccion_proveedor").value = proveedor[0].direccion_proveedor;
-				document.getElementById("nombre_proveedor").value = proveedor[0].nombre_proveedor;
-				document.getElementById("telefono_proveedor").value = proveedor[0].telefono_proveedor;
-				
-				document.getElementById("proveedor_search").value = "";
-			
+				if (proveedor.toString() != "") {
+					window.alert("Encontre Proveedor con Nit  " + dato);
 
-			} else {
-				window.alert("No Encontre Proveedor con nit  "+ user);
-				var element = document.getElementById("error");
-				element.classList.remove("visually-hidden");
-				var element2 = document.getElementById("correcto");
-				element2.classList.add("visually-hidden");
-				document.getElementById("nit_proveedor").value = "";
-				document.getElementById("ciudad_proveedor").value = "";
-				document.getElementById("direccion_proveedor").value = "";
-				document.getElementById("nombre_proveedor").value = "";
-				document.getElementById("telefono_proveedor").value = "";
+					document.getElementById("nit_proveedor").value = proveedor[0].nit_proveedor;
+					document.getElementById("ciudad_proveedor").value = proveedor[0].ciudad_proveedor;
+					document.getElementById("direccion_proveedor").value = proveedor[0].direccion_proveedor;
+					document.getElementById("nombre_proveedor").value = proveedor[0].nombre_proveedor;
+					document.getElementById("telefono_proveedor").value = proveedor[0].telefono_proveedor;
+
+					document.getElementById("proveedor_search").value = "";
+
+				} else {
+					window.alert("No Encontre Proveedor con nit  " + user);
+					var element = document.getElementById("error");
+					element.classList.remove("visually-hidden");
+					var element2 = document.getElementById("correcto");
+					element2.classList.add("visually-hidden");
+					document.getElementById("nit_proveedor").value = "";
+					document.getElementById("ciudad_proveedor").value = "";
+					document.getElementById("direccion_proveedor").value = "";
+					document.getElementById("nombre_proveedor").value = "";
+					document.getElementById("telefono_proveedor").value = "";
+				}
 			}
-		}
-	</script>
-
+		</script>
 </body>
 </html>
