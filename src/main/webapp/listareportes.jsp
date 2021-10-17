@@ -188,15 +188,23 @@ function reporte_lista_usuarios() {
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.open("GET", baseurl, true);
 		xmlhttp.onreadystatechange = function() {
-			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+			if (xmlhttp.status === 200) {
 				var ventas = JSON.parse(xmlhttp.responseText);
 				var tbltop = "<table class='table table-dark table-striped'><tr><th>Cedula Cliente</th><th>Nombre Cliente</th><th>Codigo Venta</th><th>Valor Total Venta</th></tr>";
 				var main = "";
 				for (i = 0; i < ventas.length; i++) {
+					var cliente = null;
+					var xmlhttp2 = new XMLHttpRequest();
+					xmlhttp2.open("GET", "http://localhost:8080/consultarclientes?cedula_cliente=" + ventas[i].cedula_cliente, false);
+					xmlhttp2.send(null);
+					if (xmlhttp2.status == 200){
+						cliente = JSON.parse(xmlhttp2.responseText);
+					}
 					main += "<tr><td>" + ventas[i].cedula_cliente
-							+ "</td><td>" + "falta"
+							+ "</td><td>" + cliente[0].nombre_cliente
 							+ "</td><td>" + ventas[i].codigo_venta
-							+ "</td><td>" + ventas[i].valor_venta + "</td></tr>";				}
+							+ "</td><td>" + ventas[i].valor_venta + "</td></tr>";
+				}
 				var tblbottom = "</table>";
 				var tbl = tbltop + main + tblbottom;
 				document.getElementById("venta_clientes_info").innerHTML = tbl;

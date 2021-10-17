@@ -525,8 +525,7 @@
 			window.alert("Venta registrada");
 			location.reload();
 			
-		}
-	   
+		}	   
 	</script>
 
 </body>

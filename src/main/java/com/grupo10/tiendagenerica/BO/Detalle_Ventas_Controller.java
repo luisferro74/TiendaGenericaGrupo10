@@ -54,7 +54,7 @@ public class Detalle_Ventas_Controller {
 		Dao.actualizarDetalleVenta(detalle_venta);
 	}
 	
-	@GetMapping("/contardetallerventa")
+	@GetMapping("/contardetalleventa")
 	public int contardetalleVenta() {
 		int numero;
 		Detalle_VentasDAO Dao = new Detalle_VentasDAO();
