@@ -151,7 +151,7 @@
 						<div class="col">
 							<input type="text" class="form-control"
 								placeholder="Valor Total 1" aria-describedby="basic-addon1"
-								required id="valort_1">
+								required id="valort_1" value="0">
 						</div>
 					</div>
 
@@ -182,7 +182,7 @@
 						<div class="col">
 							<input type="text" class="form-control"
 								placeholder="Valor Total 2" aria-describedby="basic-addon1"
-								required id="valort_2">
+								required id="valort_2" value="0">
 						</div>
 					</div>
 
@@ -213,7 +213,7 @@
 						<div class="col">
 							<input type="text" class="form-control"
 								placeholder="Valor Total t3" aria-describedby="basic-addon1"
-								required id="valort_3">
+								required id="valort_3" value="0">
 						</div>
 					</div>
 
@@ -526,6 +526,7 @@
 			location.reload();
 			
 		}
+	   
 	</script>
 
 </body>
